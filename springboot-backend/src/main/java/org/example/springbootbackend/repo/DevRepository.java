@@ -1,4 +1,7 @@
 package org.example.springbootbackend.repo;
 
-public class DevRepository {
+import org.example.springbootbackend.domain.Dev;
+import org.springframework.data.repository.CrudRepository;
+
+public interface DevRepository extends CrudRepository<Dev, Long> {
 }
