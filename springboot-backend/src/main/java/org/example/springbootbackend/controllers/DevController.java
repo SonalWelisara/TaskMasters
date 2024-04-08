@@ -8,8 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class DevController {
 
-<<<<<<< HEAD
-=======
     private final DevService devService;
 
     public DevController(DevService devService) {
@@ -25,5 +23,4 @@ public class DevController {
 
     }
 
->>>>>>> DevloperTable
 }
