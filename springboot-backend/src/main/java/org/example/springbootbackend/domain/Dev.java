@@ -23,5 +23,5 @@ public class Dev {
     private String contactNo;
     private String username;
     private String password;
-
+    private String profilePic;
 }

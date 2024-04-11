@@ -41,6 +41,8 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     private List<StoreCart> storeCarts;
+
+    private String profilePic;
 }
 
 

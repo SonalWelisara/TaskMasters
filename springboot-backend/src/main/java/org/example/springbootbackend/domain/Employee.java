@@ -34,6 +34,8 @@ public class Employee {
     @Column(name="Password")
     private String password;
 
+    private String profilePic;
+
     @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Bidding bidding;
 
