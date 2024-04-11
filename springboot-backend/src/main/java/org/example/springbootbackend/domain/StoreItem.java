@@ -1,16 +1,25 @@
 package org.example.springbootbackend.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "store_item")
 public class StoreItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String Name;
@@ -23,78 +32,10 @@ public class StoreItem {
     @Column(name = "category")
     private String Category;
 
+    @OneToMany(mappedBy = "storeItem", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<OrderDetails> orderDetails;
 
-    /*
-    @ManyToMany(mappedBy = "authors")
-    private Set<Book> books = new HashSet<>();
+    @OneToMany(mappedBy = "storeItem")
+    private List<StoreCart> storeCarts;
 
-    public Set<Book> getBooks() {
-        return books;
-    }
-
-    public void setBooks(Set<Book> books) {
-        this.books = books;
-    }
-    */
-
-    public StoreItem() {
-
-    }
-
-    public StoreItem( String name, String discription, double price, int quantity, String category) {
-
-        Name = name;
-        Discription = discription;
-        Price = price;
-        this.quantity = quantity;
-        Category = category;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public String getDiscription() {
-        return Discription;
-    }
-
-    public void setDiscription(String discription) {
-        Discription = discription;
-    }
-
-    public double getPrice() {
-        return Price;
-    }
-
-    public void setPrice(double price) {
-        Price = price;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getCategory() {
-        return Category;
-    }
-
-    public void setCategory(String category) {
-        Category = category;
-    }
 }
