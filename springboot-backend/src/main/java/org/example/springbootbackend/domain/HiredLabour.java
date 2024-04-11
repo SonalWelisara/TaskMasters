@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.springbootbackend.Enums.LabourStatus;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Time;
@@ -35,5 +36,9 @@ public class HiredLabour {
 
     @OneToOne(mappedBy = "hiredLabour")
     private Payment payment;
+
+    @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
+    private LabourStatus labourStatus;
 
 }
