@@ -35,7 +35,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",
@@ -99,7 +100,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           }
@@ -108,6 +110,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "556a230d-9bcd-49b5-8bf2-f885199ecfb7"
+=======
+    "analytics": "9ca935cb-d093-4010-a70f-bedeb44f35a7"
+>>>>>>> StoreFront1
   }
 }
