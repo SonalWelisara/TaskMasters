@@ -19,7 +19,7 @@ import java.util.Set;
 public class StoreItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "name")
     private String Name;
@@ -34,6 +34,7 @@ public class StoreItem {
 
     @OneToMany(mappedBy = "storeItem", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
+
 
     @OneToMany(mappedBy = "storeItem")
     private List<StoreCart> storeCarts;
