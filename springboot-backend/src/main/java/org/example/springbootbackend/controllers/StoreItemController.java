@@ -1,26 +1,82 @@
 package org.example.springbootbackend.controllers;
 
+import lombok.RequiredArgsConstructor;
 import org.example.springbootbackend.domain.StoreItem;
-import org.example.springbootbackend.repo.StoreItemRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.springbootbackend.services.StoreItemService;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/vi/")
+@RequestMapping("/store")
+@RequiredArgsConstructor
+@CrossOrigin("*")
 public class StoreItemController {
 
-    @Autowired
-    private StoreItemRepository storeItemRepository;
+    private final StoreItemService storeItemService;
 
-    //get All Store Items
-    @RequestMapping("/StoreItems")
-    public List<StoreItem> getAllStoreItems(){
-        return  storeItemRepository.findAll();
+    //Create Product
+    @PostMapping("/storeItem")
+    public StoreItem postStoreItem(@RequestBody StoreItem storeItem ){
+        return storeItemService.postStoreItem(storeItem);
     }
+
+    //get all product
+    @GetMapping("storeItem")
+    private List<StoreItem> getAllStoreItem(){
+        return  storeItemService.getAllStoreItem();
+    }
+
+    //get product by id
+    @GetMapping("/storeItem/{id}")
+    public ResponseEntity<StoreItem> getStoreItemById(@PathVariable Long id ){
+        StoreItem storeItem = storeItemService.getStoreItemById(id);
+        if(storeItem == null){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            return ResponseEntity.ok(storeItem);
+        }
+    }
+
+    //update product
+    @PutMapping("/storeItem/{id}")
+    public ResponseEntity<StoreItem> updateStoreItem(@PathVariable Long id , @RequestBody StoreItem storeItem){
+        StoreItem existingStoreItem = storeItemService.getStoreItemById(id);
+        if(existingStoreItem == null){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            existingStoreItem.setCategory(storeItem.getCategory());
+            existingStoreItem.setDiscription(storeItem.getDiscription());
+            existingStoreItem.setName(storeItem.getName());
+            existingStoreItem.setPrice(storeItem.getPrice());
+            existingStoreItem.setQuantity(storeItem.getQuantity());
+
+            StoreItem updatedStoreItem = storeItemService.updateProduct(existingStoreItem);
+            return  ResponseEntity.ok(updatedStoreItem);
+        }
+    }
+
+    //delete Store Item
+    @DeleteMapping("storeItem/{id}")
+    public ResponseEntity<?> deleteStoreItem(@PathVariable Long id){
+        StoreItem existingStoreItem = storeItemService.getStoreItemById(id);
+        if(existingStoreItem == null){
+            return ResponseEntity.notFound().build();
+        }
+        else{
+            storeItemService.deleteStoreItem(id);
+            return ResponseEntity.ok().build();
+        }
+    }
+
+
+
+
 
 
 }

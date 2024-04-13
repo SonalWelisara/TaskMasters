@@ -12,11 +12,7 @@ import java.util.List;
 @RequestMapping("/api/vi/")
 public class StoreCartController {
 
-    @Autowired
-    private StoreCartRepository storeCartRepository;
 
-    @RequestMapping("/StoreCart")
-    public List<StoreCart> getAllStoreCart(){
-        return storeCartRepository.findAll();
-    }
+
+
 }
