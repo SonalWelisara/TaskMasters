@@ -1,6 +1,5 @@
 package org.example.springbootbackend.domain;
 
-
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,18 +11,17 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Driver {
+@Table(name = "FeedbackReviews")
+public class FeedbackReviews {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "name")
-    private String name;
+    private Long R_Id;
 
-    @Column(name = "address")
-    private String address;
+    @Column(name = "Reviews")
+    private String reviews;
 
-    @Column(name = "availability")
-    private String availability;
+    @Column(name = "Service Type")
+    private String service_type;
 
 }

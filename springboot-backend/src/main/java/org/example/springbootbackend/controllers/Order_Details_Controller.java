@@ -1,7 +1,7 @@
 package org.example.springbootbackend.controllers;
 
 import org.example.springbootbackend.domain.OrderDetails;
-import org.example.springbootbackend.repo.Order_Details_Repository;
+import org.example.springbootbackend.repo.OrderDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/api/v1/")
 public class Order_Details_Controller {
 @Autowired
-private Order_Details_Repository orderDetailsRepository;
+private OrderDetailsRepository orderDetailsRepository;
 
 @GetMapping("/orderDetails")
 public List<OrderDetails> getAllOrderDetails(){

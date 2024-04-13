@@ -1,41 +1,33 @@
 package org.example.springbootbackend.domain;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "store_cart")
 public class StoreCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(name = "quantity")
     private String quantity;
 
+    @ManyToOne
+    @JoinColumn(name = "item_ID")
+    private StoreItem storeItem;
 
-    public StoreCart() {
-
-    }
-    public StoreCart(String quantity) {
-        quantity = quantity;
-    }
-
-    public String getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(String quantity) {
-        this.quantity = quantity;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    @ManyToOne
+    @JoinColumn(name = "user_ID")
+    private User user;
 
 }
