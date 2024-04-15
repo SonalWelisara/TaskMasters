@@ -25,7 +25,7 @@ public class StoreItemController {
     }
 
     //get all product
-    @GetMapping("storeItem")
+    @GetMapping("/storeItem")
     private List<StoreItem> getAllStoreItem(){
         return  storeItemService.getAllStoreItem();
     }

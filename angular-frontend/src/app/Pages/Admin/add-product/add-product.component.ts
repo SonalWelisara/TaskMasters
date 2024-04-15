@@ -1,10 +1,38 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { StoreItemService } from '../../../Service/store-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrl: './add-product.component.css'
+  styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent {
 
+  postStoreItemForm !: FormGroup;
+
+  constructor(
+    private storeItemService: StoreItemService,
+    private fb: FormBuilder,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.postStoreItemForm = this.fb.group({
+      name: [null, [Validators.required]],
+      category: [null, [Validators.required]], // Include the category form control
+      discription: [null, [Validators.required]],
+      price: [null, [Validators.required]],
+      quantity: [null, [Validators.required]],
+    });
+  }
+
+  postStoreItem() {
+    console.log(this.postStoreItemForm.value);
+    this.storeItemService.postStoreItem(this.postStoreItemForm.value).subscribe((res) => {
+      console.log(res);
+      this.router.navigateByUrl("")
+    });
+  }
 }

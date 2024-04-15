@@ -1,0 +1,21 @@
+.input-align input{
+    margin: 2rem;
+}
+
+.selectcustom {
+    margin: 2rem;
+    
+}
+
+.txtAreacustom {
+    margin: 2rem;
+}
+.container h1{
+    text-align: center;
+}
+.btn-center {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
