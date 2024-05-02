@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary"> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        
+        <li class="nav-item">
+            <!-- Change this  -->
+          <a class="nav-link" routerLink="">All Bid</a>
+        </li>
+       
+      </ul>
+      
+    </div>
+  </nav>
+<div class="tableP">
+    <table class="table table-sm custom-table">
+        <thead>
+            <tr>
+                <th scope="col" class="bg-primary">id</th>
+                <th scope="col" class="bg-primary">Bidding Amount</th>
+                <th scope="col" class="bg-primary">Description</th>
+                <th scope="col" class="bg-primary">Emp_id</th>
+                <th scope="col" class="bg-primary">Action</th>
+              
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let bidding of bidding">
+                <th scope="row" class="table-light">{{bidding.b_id}}</th>
+                <td class="table-light">{{bidding.bidding_amount}}</td>
+                <td class="table-light">{{bidding.description}}</td>
+                <td class="table-light">{{bidding.emp_id}}</td>
+                <td class="table-light">
+                  <button type="button" class="btn btn-outline-primary" (click)="deleteStoreItem(bidding.b_id)">Delete</button>
+                  <button type="button" class="btn btn-outline-info" (click)="goToUpdate(bidding.b_id)">Update</button>
+              </td>
+     
+                
+                
+            </tr>
+         
+        </tbody>
+    </table>
+</div>

@@ -16,12 +16,13 @@ public class Bidding {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long B_id;
 
-    @OneToOne
-    @JoinColumn(name = "employee_ID")
-    private Employee employee;
+    @Column(name = "emp_id")
+    private Long emp_id ;
 
-    private Date Date;
+    @Column(name = "description")
+    private  String description ;
 
+    @Column(name = "Bidding_amount")
     private Double Bidding_amount;
 
 }

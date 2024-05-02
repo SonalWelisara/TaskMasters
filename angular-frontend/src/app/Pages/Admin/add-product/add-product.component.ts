@@ -21,8 +21,8 @@ export class AddProductComponent {
   ngOnInit() {
     this.postStoreItemForm = this.fb.group({
       name: [null, [Validators.required]],
-      category: [null, [Validators.required]], // Include the category form control
-      discription: [null, [Validators.required]],
+      category: [null, [Validators.required]], 
+      description: [null, [Validators.required]],
       price: [null, [Validators.required]],
       quantity: [null, [Validators.required]],
     });

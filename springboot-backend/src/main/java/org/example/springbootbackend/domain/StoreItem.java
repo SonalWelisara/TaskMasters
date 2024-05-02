@@ -24,14 +24,18 @@ public class StoreItem {
     private Long id;
     @Column(name = "name")
     private String Name;
-    @Column(name = "discription")
-    private String Discription;
+    @Column(name = "description")
+    private String description;
     @Column(name = "price")
     private double Price;
     @Column(name = "quantity")
     private int quantity;
     @Column(name = "category")
     private String Category;
+
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private  byte[] data ;
 
 
 

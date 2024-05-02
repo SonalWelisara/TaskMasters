@@ -51,7 +51,7 @@ public class StoreItemController {
         }
         else{
             existingStoreItem.setCategory(storeItem.getCategory());
-            existingStoreItem.setDiscription(storeItem.getDiscription());
+            existingStoreItem.setDescription(storeItem.getDescription());
             existingStoreItem.setName(storeItem.getName());
             existingStoreItem.setPrice(storeItem.getPrice());
             existingStoreItem.setQuantity(storeItem.getQuantity());

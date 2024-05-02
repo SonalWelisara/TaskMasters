@@ -16,18 +16,24 @@ import org.hibernate.cache.spi.support.AbstractReadWriteAccess;
 public class StoreCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "quantity")
-    private String quantity;
+    private int quantity;
 
-    @ManyToOne
-    @JoinColumn(name = "item_ID")
-    private StoreItem storeItem;
 
-    @ManyToOne
-    @JoinColumn(name = "user_ID")
-    private User user;
+    @Column(name = "item_ID")
+    private Long storeItem;
+
+    @Column(name = "user_ID")
+    private Long user;
+
+    @Column(name = "p_name")
+    private String p_name ;
+
+    @Column(name = "p_price")
+    private Double p_price;
+
 
 }

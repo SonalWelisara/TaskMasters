@@ -30,22 +30,32 @@ export class UpdateItemComponent {
       price: [null, [Validators.required]],
       quantity: [null, [Validators.required]]
     });
-
+  
     this.getStoreItemById();
   }
-
+  
   getStoreItemById() {
     this.service.getStoreItemById(this.id).subscribe((res) => {
-      console.log(res);
-      this.updateStoreItemFrom.patchValue(res);
+      console.log(res); 
+     
+      this.updateStoreItemFrom.patchValue({
+        name: res.name,
+        category: res.category,
+        description: res.description,
+        price: res.price,
+        quantity: res.quantity
+      });
     });
   }
+  
+
 
   updateStoreItem() {
     this.service.updateStoreItem(this.id, this.updateStoreItemFrom.value).subscribe((res) => {
       console.log(res);
       if (res.id != null) {
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl("");
+
       }
     });
   }
