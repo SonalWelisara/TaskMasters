@@ -17,7 +17,7 @@ export class StoreNavBarComponent {
 
   goToHome(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("userHome/" + this.userId);
+      this.router.navigateByUrl("user/userHome/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")
@@ -31,7 +31,7 @@ export class StoreNavBarComponent {
   
   goToAddCart(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("storeCart/" + this.userId);
+      this.router.navigateByUrl("user/storeCart/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")
@@ -41,7 +41,7 @@ export class StoreNavBarComponent {
   }
   goToStore(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("storeHome/" + this.userId);
+      this.router.navigateByUrl("user/storeHome/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")

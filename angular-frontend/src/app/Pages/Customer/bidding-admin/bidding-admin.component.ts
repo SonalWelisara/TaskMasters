@@ -36,7 +36,7 @@ export class BiddingAdminComponent {
   }
 
   goToUpdate(b_id : number){
-    this.router.navigateByUrl("updatebid/"+ b_id)
+    this.router.navigateByUrl("user/updatebid/"+ b_id)
   }
 
 

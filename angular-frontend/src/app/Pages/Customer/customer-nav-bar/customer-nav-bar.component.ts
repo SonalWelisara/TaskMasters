@@ -18,7 +18,7 @@ export class CustomerNavBarComponent {
 
   goToHome(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("userHome/" + this.userId);
+      this.router.navigateByUrl("user/userHome/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")
@@ -27,7 +27,7 @@ export class CustomerNavBarComponent {
   }
   goToHomeAbout(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("homeAbout/" + this.userId);
+      this.router.navigateByUrl("user/homeAbout/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")
@@ -37,7 +37,7 @@ export class CustomerNavBarComponent {
   }
   goToHomeService(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("homeService/" + this.userId);
+      this.router.navigateByUrl("user/homeService/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")
@@ -47,7 +47,7 @@ export class CustomerNavBarComponent {
 
   goToHomeBidding() {
     if (this.userId !== undefined) {
-      this.router.navigateByUrl("bid" );
+      this.router.navigateByUrl("user/bid" );
     } else {
       console.log("User ID is undefined");
       // Handle the case when the user ID is undefined
@@ -56,7 +56,7 @@ export class CustomerNavBarComponent {
   
   goToStore(){
     if(this.userId != undefined){
-      this.router.navigateByUrl("storeHome/" + this.userId);
+      this.router.navigateByUrl("user/storeHome/" + this.userId);
     }
     else{
       console.log("User Id is undefiend")

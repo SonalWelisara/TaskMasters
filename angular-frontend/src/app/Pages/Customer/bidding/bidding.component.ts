@@ -35,7 +35,7 @@ postbidding (){
   console.log(this.postBiddingForm.value);
   this.bidingService.postBid(this.postBiddingForm.value).subscribe((res)=>{
     console.log(res);
-      this.router.navigateByUrl("bidadmin")
+      this.router.navigateByUrl("user/bidadmin")
   })
     
 }

@@ -22,7 +22,7 @@ export class TempUserComponent {
 
         this.userIdService.setUserId(userId);
         
-        this.router.navigate(['/userHome', userId]);
+        this.router.navigate(['user/userHome', userId]);
       } else {
         
         console.log('User not found');
