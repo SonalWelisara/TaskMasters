@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
-import { DeveloperService } from '../../service/developer.service';
+import { DeveloperService } from '../../../service/developer.service';
 
 @Component({
   selector: 'app-update-dev',
@@ -49,7 +49,7 @@ export class UpdateDevComponent {
     this.service.updateDev(this.id, this.updateDevForm.value).subscribe((res) => {
       console.log(res);
       if (res.id != null) {
-        this.router.navigateByUrl(`updateDev/${id}`);
+        this.router.navigateByUrl(`admin/updateDev/${id}`);
         this.updateDevForm.patchValue(res);
       }
     });

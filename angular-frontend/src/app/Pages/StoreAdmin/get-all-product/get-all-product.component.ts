@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { StoreItemService } from '../../../Service/store-item.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-all-product',
@@ -9,7 +10,7 @@ import { StoreItemService } from '../../../Service/store-item.service';
 export class GetAllProductComponent {
 
   storeItems:any[]=[];
-  constructor(private storeItemService:StoreItemService){
+  constructor(private storeItemService:StoreItemService, private router : Router){
 
   }
 
@@ -30,6 +31,10 @@ export class GetAllProductComponent {
       console.log(res);
       this.getAllStoreItem();
     })
+  }
+
+  toAllProducts(){
+    this.router.navigateByUrl("storeadmin")
   }
 
 }

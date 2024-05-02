@@ -54,7 +54,7 @@ export class UpdateItemComponent {
     this.service.updateStoreItem(this.id, this.updateStoreItemFrom.value).subscribe((res) => {
       console.log(res);
       if (res.id != null) {
-        this.router.navigateByUrl("");
+        this.router.navigateByUrl("storeadmin");
 
       }
     });

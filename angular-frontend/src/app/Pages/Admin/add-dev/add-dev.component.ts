@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { DeveloperService } from '../../service/developer.service';
-import { AuthService } from '../../service/auth.service';
+import { DeveloperService } from '../../../service/developer.service';
+import { AuthService } from '../../../service/auth.service';
 
 @Component({
   selector: 'app-add-dev',
@@ -38,7 +38,7 @@ export class AddDevComponent {
     console.log(this.addDevForm.value);
     this.devService.addDev(this.addDevForm.value).subscribe((res) => {
       console.log(res);
-      this.router.navigateByUrl("table")
+      this.router.navigateByUrl("admin/table")
     });
   }
 

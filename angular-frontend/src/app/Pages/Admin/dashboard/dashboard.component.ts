@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Chart from 'chart.js/auto';
-import { AdminService } from '../../service/admin.service';
+import { AdminService } from '../../../service/admin.service';
 
 
 

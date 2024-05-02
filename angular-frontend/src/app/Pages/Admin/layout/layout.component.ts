@@ -23,15 +23,15 @@ export class LayoutComponent {
   }
 
   totables(){
-    this.router.navigateByUrl("table")
+    this.router.navigateByUrl("admin/table")
   }
 
   todashboard(){
-    this.router.navigateByUrl("dashboard")
+    this.router.navigateByUrl("admin/dashboard")
   }
 
   toDevUpdate(){
-    this.router.navigateByUrl("updateDev")
+    this.router.navigateByUrl("admin/updateDev")
   }
 
 }

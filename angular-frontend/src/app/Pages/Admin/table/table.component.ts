@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Developers } from '../../Dto/developers';
-import { DeveloperService } from '../../service/developer.service';
+import { Developers } from '../../../Dto/developers';
+import { DeveloperService } from '../../../service/developer.service';
 
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -32,7 +32,7 @@ export class TableComponent {
   }
 
   toDevUpdate(id:number){
-    this.router.navigateByUrl(`updateDev/${id}`)
+    this.router.navigateByUrl(`admin/updateDev/${id}`)
   }
   
   deleteDev(id:number){
@@ -43,7 +43,7 @@ export class TableComponent {
   }
 
   toAddDev(){
-    this.router.navigateByUrl(`addDev`)
+    this.router.navigateByUrl(`admin/addDev`)
   }
 
 }
