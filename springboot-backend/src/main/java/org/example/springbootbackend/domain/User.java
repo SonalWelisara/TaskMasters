@@ -39,8 +39,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<HiredLabour> hiredLabours;
 
-    @OneToMany(mappedBy = "user")
-    private List<StoreCart> storeCarts;
 
     private String profilePic;
 }
