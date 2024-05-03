@@ -62,7 +62,7 @@ public class StoreItemController {
     }
 
     //delete Store Item
-    @DeleteMapping("storeItem/{id}")
+    @DeleteMapping("/storeItem/{id}")
     public ResponseEntity<?> deleteStoreItem(@PathVariable Long id){
         StoreItem existingStoreItem = storeItemService.getStoreItemById(id);
         if(existingStoreItem == null){

@@ -7,7 +7,7 @@ import { AuthService } from '../../../service/auth.service';
 @Component({
   selector: 'app-add-dev',
   templateUrl: './add-dev.component.html',
-  styleUrl: './add-dev.component.css'
+  styleUrl: './add-dev.component.scss'
 })
 export class AddDevComponent {
 

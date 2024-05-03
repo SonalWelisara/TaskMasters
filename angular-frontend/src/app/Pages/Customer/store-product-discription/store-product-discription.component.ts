@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { StoreItemService } from '../../../Service/store-item.service';
-import { UserIdServiceService } from '../../../Service/user-id-service.service';
-import { StoreAddCartService } from '../../../Service/store-add-cart.service';
+import { StoreItemService } from '../../../service/store-item.service';
+import { UserIdServiceService } from '../../../service/user-id-service.service';
+import { StoreAddCartService } from '../../../service/store-add-cart.service';
 
 
 @Component({
   selector: 'app-store-product-discription',
   templateUrl: './store-product-discription.component.html',
-  styleUrl: './store-product-discription.component.css'
+  styleUrl: './store-product-discription.component.scss'
 })
 export class StoreProductDiscriptionComponent implements OnInit{
 
@@ -81,7 +81,7 @@ export class StoreProductDiscriptionComponent implements OnInit{
 
       this.storeAddCart.postStoreAddCart(cartItem).subscribe((response) => {
         console.log('Item added to cart:', response);
-        this.router.navigateByUrl("storeCart/" + this.userId); 
+        this.router.navigateByUrl("user/storeCart/" + this.userId); 
       }, (error) => {
         console.error('Error adding item to cart:', error);
       });

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { BidingService } from '../../../Service/biding.service';
+import { BidingService } from '../../../service/biding.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bidding-admin',
   templateUrl: './bidding-admin.component.html',
-  styleUrl: './bidding-admin.component.css'
+  styleUrl: './bidding-admin.component.scss'
 })
 export class BiddingAdminComponent {
 

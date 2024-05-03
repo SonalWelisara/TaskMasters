@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BidingService } from '../../../Service/biding.service';
+import { BidingService } from '../../../service/biding.service';
 import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-bidding',
   templateUrl: './bidding.component.html',
-  styleUrl: './bidding.component.css'
+  styleUrl: './bidding.component.scss'
 })
 export class BiddingComponent {
 

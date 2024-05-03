@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { StoreItemService } from '../../../Service/store-item.service';
+import { StoreItemService } from '../../../service/store-item.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-item',
   templateUrl: './update-item.component.html',
-  styleUrls: ['./update-item.component.css']
+  styleUrls: ['./update-item.component.scss']
 })
 export class UpdateItemComponent {
 
@@ -54,7 +54,7 @@ export class UpdateItemComponent {
     this.service.updateStoreItem(this.id, this.updateStoreItemFrom.value).subscribe((res) => {
       console.log(res);
       if (res.id != null) {
-        this.router.navigateByUrl("storeadmin");
+        this.router.navigateByUrl("/storeadmin");
 
       }
     });

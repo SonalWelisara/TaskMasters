@@ -1,0 +1,19 @@
+<div class="container" style="padding-left: 0;"> <!-- This padding for custom style. not the default. removing is ok -->
+  <div class="row">
+    <div class="col" style="padding-left: 0;">  <!-- This padding for custom style. not the default. removing is ok -->
+      <star-rating
+        [hoverEnabled]="true"
+        (starClickChange)="onClick($event)"
+        (ratingChange)="onRatingChange($event)"
+        (hoverRatingChange)="onHoverRatingChange($event)"
+        [rating]="rating"
+        [numOfStars]="numOfStars"
+        [readOnly]="readOnly"
+      >
+      </star-rating>
+      <div style="display: flex; justify-content: center; font-weight: 600">
+        Your rated {{ rating ? rating : 0 }} / {{ numOfStars }}
+      </div>
+    </div>
+  </div>
+</div>

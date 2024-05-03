@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-home-service',
   templateUrl: './home-service.component.html',
-  styleUrl: './home-service.component.css'
+  styleUrl: './home-service.component.scss'
 })
 export class HomeServiceComponent {
   constructor(

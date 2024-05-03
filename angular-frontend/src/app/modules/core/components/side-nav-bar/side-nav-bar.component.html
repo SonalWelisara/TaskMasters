@@ -1,0 +1,34 @@
+<!--Main Navigation-->
+<header>
+  <!-- Sidebar -->
+  <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+  
+    <div class="position-sticky">
+
+      <div class="header md-3 mb-2 mt-4">
+        <h3 class="logo">Task Masters</h3>
+      </div>
+      <div class="list-group list-group-flush mx-3 mt-4">
+     
+        <a class="list-group-item list-group-item-action py-2 ripple" >
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Dashboard</span>
+        </a>
+        <a routerLink="orders" class="list-group-item list-group-item-action py-2 ripple common-color" aria-current="true"><i
+          class="fas fa-chart-bar fa-fw me-3 common-color"></i><span>Orders</span></a>
+        <a routerLink="drivers" class="list-group-item list-group-item-action py-2 ripple common-color"><i
+            class="fas fa-drivers-license me-3 common-color"></i><span>Drivers</span></a>
+
+        <a routerLink=""(click)="onSignOut()"  class="list-group-item list-group-item-action py-2 ripple common-color"><i
+              class="fas fa-sign-out me-3 common-color"></i><span>Sign Out</span></a>  
+      </div>
+    </div>
+  </nav>
+  <!-- Sidebar -->
+</header>
+<!--Main Navigation-->
+
+<!--Main layout-->
+<main style="margin-top: 58px;">
+  <div class="container pt-4"></div>
+</main>
+<!--Main layout-->

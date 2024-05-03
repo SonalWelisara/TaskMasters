@@ -28,6 +28,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/register")
+    @CrossOrigin("*")
     public ResponseEntity<ApiResponse<User>> registerUser(@RequestBody User user) {
         try {
             logger.info("Starting user registration for {}", user.getEmail());

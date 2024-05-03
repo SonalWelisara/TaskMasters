@@ -1,0 +1,29 @@
+
+.text{
+  padding-left: 20px;
+  margin-top: 20px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.2);
+  font-size: 20px;
+}
+
+button {
+  // margin-left: 50%;
+  // margin-top: 5%;
+  border-radius: 50% !important;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none !important;
+  padding: 5px 7px !important;
+  -webkit-transition: background-color 1s, color 1s, -webkit-transform 0.5s;
+     transition: background-color 1s, transform 0.5s;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  -webkit-transform: translateX(-5px);
+  -webkit-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+  -moz-box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+  box-shadow: 5px 0px 18px 0px rgba(105,105,105,0.8);
+}

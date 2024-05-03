@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserIdServiceService } from '../../../Service/user-id-service.service';
+import { UserIdServiceService } from '../../../service/user-id-service.service';
 
 @Component({
   selector: 'app-customer-nav-bar',
   templateUrl: './customer-nav-bar.component.html',
-  styleUrl: './customer-nav-bar.component.css'
+  styleUrl: './customer-nav-bar.component.scss'
 })
 export class CustomerNavBarComponent {
 

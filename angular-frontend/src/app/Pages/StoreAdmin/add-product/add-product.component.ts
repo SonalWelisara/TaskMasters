@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { StoreItemService } from '../../../Service/store-item.service';
+import { StoreItemService } from '../../../service/store-item.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
-  styleUrls: ['./add-product.component.css']
+  styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent {
 
@@ -32,7 +32,7 @@ export class AddProductComponent {
     console.log(this.postStoreItemForm.value);
     this.storeItemService.postStoreItem(this.postStoreItemForm.value).subscribe((res) => {
       console.log(res);
-      this.router.navigateByUrl("")
+      this.router.navigateByUrl("storeadmin")
     });
   }
 }

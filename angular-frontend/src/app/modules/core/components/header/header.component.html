@@ -1,0 +1,25 @@
+<div class="container">
+  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-4 border-bottom">
+    <div class="col-md-3 mb-2 mb-md-0">
+      <h3 class="logo">Task Masters</h3>
+    </div>
+
+    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+      <li><a href="#" class="nav-link px-2 link-secondary">Home</a></li>
+      <li><a (click)="navigateToProfileModal($event)" class="nav-link px-2 common-color" style="cursor: pointer;">Profile</a></li>
+      <li><a (click)="navigateToJobFeedback($event)" class="nav-link px-2 common-color" style="cursor: pointer;">Jobs</a></li>
+      <li><a (click)="navigateToHireManagement($event)" class="nav-link px-2 common-color" style="cursor: pointer;">Hiring</a></li>
+      <li><a href="#" class="nav-link px-2 common-color">Features</a></li>
+      <li><a (click)="navigateToFaq($event)" class="nav-link px-2 common-color" style="cursor: pointer;">FAQs</a></li>
+      <li><a href="#" class="nav-link px-2 common-color">About</a></li>
+    </ul>
+
+    <div class="col-md-3 text-end">
+      <div *ngIf="!hideLoginRegBtn">
+      <button type="button" class="btn btn-outline-primary me-2 fs-6" style="text-transform: none;" mdbRipple rippleColor="dark"(click)="navigateToLogin($event)">Login</button>
+      <button type="button" class="btn btn-primary fs-6 text-transform: none;" mdbRipple (click)="navigateToRegister($event)">Sign-up</button>
+    </div>
+      <button *ngIf="hideLoginRegBtn" type="button" class="btn btn-outline-primary me-2 fs-6" style="text-transform: none;" mdbRipple rippleColor="dark" (click)="logout()">Log out</button>
+    </div>
+  </header>
+</div>

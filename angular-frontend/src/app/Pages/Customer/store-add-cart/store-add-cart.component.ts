@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { StoreItemService } from '../../../Service/store-item.service';
-import { UserIdServiceService } from '../../../Service/user-id-service.service';
-import { StoreAddCartService } from '../../../Service/store-add-cart.service';
+import { StoreItemService } from '../../../service/store-item.service';
+import { UserIdServiceService } from '../../../service/user-id-service.service';
+import { StoreAddCartService } from '../../../service/store-add-cart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-store-add-cart',
   templateUrl: './store-add-cart.component.html',
-  styleUrl: './store-add-cart.component.css'
+  styleUrl: './store-add-cart.component.scss'
 })
 export class StoreAddCartComponent {
 

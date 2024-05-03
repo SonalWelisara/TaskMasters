@@ -7,7 +7,7 @@ import { DeveloperService } from '../../../service/developer.service';
 @Component({
   selector: 'app-update-dev',
   templateUrl: './update-dev.component.html',
-  styleUrl: './update-dev.component.css'
+  styleUrl: './update-dev.component.scss'
 })
 export class UpdateDevComponent {
 

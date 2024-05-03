@@ -1,0 +1,60 @@
+
+<ng-template  >
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add your Feedback and Rating</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form
+    [formGroup]="feedbackForm"
+    #feedbackFormDetails="ngForm"
+    (ngSubmit)="(feedbackFormDetails)">
+      <mdb-form-control class="mb-4">
+        <textarea mdbInput class="form-control form-control-lg" id="review" rows="3" formControlName="review"></textarea>
+        <label mdbLabel class="form-label" for="review">Review</label>
+      </mdb-form-control>
+      <div class="rating-wrapper"> Rate the labor
+        <app-star-rating [numOfStars]="5" [readOnly]="false"   #starRating></app-star-rating>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary me-2 fs-6" style="text-transform: none;" mdbRipple rippleColor="dark" (click)="modalRef.close()">Close</button>
+    <button type="button" class="btn btn-primary fs-6" style="text-transform: none;" mdbRipple (click)="saveFeedback()">Add my Feedback</button>
+  </div>
+</ng-template>
+<ng-template #feedbackManageView>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Manage your Feedback and Rating</h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modalRef.close()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <form 
+    [formGroup]="feedbackForm"
+    #feedbackFormDetails="ngForm"
+    (ngSubmit)="(feedbackFormDetails)" >
+      <mdb-form-control class="mb-4">
+        <textarea mdbInput class="form-control form-control-lg" id="textAreaExample" rows="3" [value]="feedbackData.review" formControlName="review"></textarea>
+        <label mdbLabel class="form-label" for="textAreaExample">Review</label>
+      </mdb-form-control>
+      <div class="rating-wrapper"> Rate the labor
+        <app-star-rating [numOfStars]="5" [rating]="feedbackData.rating" [readOnly]="false" #starRating></app-star-rating>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-primary me-2 fs-6" style="text-transform: none;" mdbRipple rippleColor="dark" (click)="modalRef.close()">Close</button>
+    <button type="button" class="btn btn-primary fs-6" style="text-transform: none;" mdbRipple  (click)="UpdateFeedbackForJobPost()">Save changes</button>
+    <button type="button" class="btn btn-danger fs-6" style="text-transform: none;" mdbRipple (click)="deleteFeedbackForJobPost()">Delete</button>
+  </div>
+</ng-template>

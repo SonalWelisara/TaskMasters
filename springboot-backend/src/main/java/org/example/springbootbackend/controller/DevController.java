@@ -66,7 +66,7 @@ public class DevController {
         }
     }
 
-    @DeleteMapping("devs/{id}")
+    @DeleteMapping("/devs/{id}")
     public ResponseEntity<?> deleteDev(@PathVariable Long id){
         Dev existingDev = devService.getDevById(id);
         if(existingDev == null){

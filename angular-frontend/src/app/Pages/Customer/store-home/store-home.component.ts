@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { StoreItemService } from '../../../Service/store-item.service';
+import { StoreItemService } from '../../../service/store-item.service';
 import { Router } from '@angular/router';
-import { UserIdServiceService } from '../../../Service/user-id-service.service';
+import { UserIdServiceService } from '../../../service/user-id-service.service';
 
 @Component({
   selector: 'app-store-home',
   templateUrl: './store-home.component.html',
-  styleUrl: './store-home.component.css'
+  styleUrl: './store-home.component.scss'
 })
 export class StoreHomeComponent {
   userId : number | undefined ; 
@@ -30,7 +30,7 @@ export class StoreHomeComponent {
 
   goToAddToCart(storeid : number) {
     
-      this.router.navigateByUrl("storeProductDis/" + storeid);
+      this.router.navigateByUrl("user/storeProductDis/" + storeid);
     
     
     

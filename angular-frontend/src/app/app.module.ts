@@ -34,7 +34,6 @@ import { HomeComponent } from './pages/Customer/home/home.component';
 import { HomeServiceComponent } from './pages/Customer/home-service/home-service.component';
 import { HomeAboutComponent } from './pages/Customer/home-about/home-about.component';
 import { StoreHomeComponent } from './pages/Customer/store-home/store-home.component';
-import { StoreHomeLayoutComponent } from './pages/Customer/store-home-layout/store-home-layout.component';
 import { StoreAddCartComponent } from './pages/Customer/store-add-cart/store-add-cart.component';
 import { HomeFooterComponent } from './pages/Customer/home-footer/home-footer.component';
 
@@ -45,6 +44,16 @@ import { BiddingAdminComponent } from './pages/Customer/bidding-admin/bidding-ad
 import { BiddingUpdateComponent } from './pages/Customer/bidding-update/bidding-update.component';
 import { CustomerNavBarComponent } from './pages/Customer/customer-nav-bar/customer-nav-bar.component';
 import { StoreNavBarComponent } from './pages/Customer/store-nav-bar/store-nav-bar.component';
+
+//
+
+import { CoreModule } from './modules/core/core.module';
+// import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ToastrModule } from 'ngx-toastr';
+
+import { AuthInterceptor } from './modules/core/interceptors/auth-interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StarRatingModule } from 'angular-star-rating';
 
 registerLocaleData(en);
 
@@ -67,7 +76,6 @@ registerLocaleData(en);
 
     CustomerNavBarComponent,
     StoreHomeComponent,
-    StoreHomeLayoutComponent,
     StoreAddCartComponent,
     HomeFooterComponent,
     StoreNavBarComponent,
@@ -76,6 +84,11 @@ registerLocaleData(en);
     BiddingComponent,
     BiddingAdminComponent,
     BiddingUpdateComponent
+
+
+    //
+
+
   ],
   imports: [
     BrowserModule,
@@ -88,8 +101,22 @@ registerLocaleData(en);
     ReactiveFormsModule,
     HttpClientModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+
+    //
+    CoreModule,
+    //HttpClientModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
+    BrowserAnimationsModule,
+    StarRatingModule.forRoot()
+  
+  
   ],
+
   providers: [
     provideClientHydration(),
     { provide: NZ_I18N, useValue: en_US },

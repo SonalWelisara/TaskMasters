@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { StoreItemService } from '../../../Service/store-item.service';
+import { StoreItemService } from '../../../service/store-item.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-get-all-product',
   templateUrl: './get-all-product.component.html',
-  styleUrl: './get-all-product.component.css'
+  styleUrl: './get-all-product.component.scss'
 })
 export class GetAllProductComponent {
 

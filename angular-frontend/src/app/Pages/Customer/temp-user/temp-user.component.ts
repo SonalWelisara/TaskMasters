@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { TempuserService } from '../../../Service/tempuser.service';
-import { UserIdServiceService } from '../../../Service/user-id-service.service';;
+import { TempuserService } from '../../../service/tempuser.service';
+import { UserIdServiceService } from '../../../service/user-id-service.service';;
 
 @Component({
   selector: 'app-temp-user',
   templateUrl: './temp-user.component.html',
-  styleUrl: './temp-user.component.css'
+  styleUrl: './temp-user.component.scss'
 })
 export class TempUserComponent {
   id!: number;

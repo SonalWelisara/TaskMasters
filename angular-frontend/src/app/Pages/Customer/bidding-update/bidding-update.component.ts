@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BidingService } from '../../../Service/biding.service';
+import { BidingService } from '../../../service/biding.service';
 
 @Component({
   selector: 'app-bidding-update',
   templateUrl: './bidding-update.component.html',
-  styleUrl: './bidding-update.component.css'
+  styleUrl: './bidding-update.component.scss'
 })
 export class BiddingUpdateComponent {
   updateBid !: FormGroup;
