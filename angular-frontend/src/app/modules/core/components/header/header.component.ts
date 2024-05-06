@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   navigateToRegister(event: Event): void {
     if (event) {
-      this.router.navigate(['/register']);
+      this.router.navigate(['/register']); 
     }
   }
 
@@ -74,6 +74,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   navigateToHireManagement(event: Event): void {
     if (event) {
       this.router.navigate(['/hire-management']);
+    }
+  }
+
+  navigateToStore(event: Event): void {
+    if (event) {
+      this.router.navigate(['user/storeHome']);
     }
   }
 

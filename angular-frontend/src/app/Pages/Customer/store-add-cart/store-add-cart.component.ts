@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { StoreItemService } from '../../../service/store-item.service';
-import { UserIdServiceService } from '../../../service/user-id-service.service';
 import { StoreAddCartService } from '../../../service/store-add-cart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SharedDataService } from '../../../modules/core/services/shared-data.service';
 
 
 
@@ -14,25 +14,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class StoreAddCartComponent {
 
+  userContext: any = '';
   addcartdetils : any[] = []; 
   storeid !: number ; 
   updatedStoreCart !:FormGroup ; 
 
-  userId : number | undefined ; 
+
   constructor(private router:Router , 
     private storeItemService:StoreItemService , 
-    private userIdService : UserIdServiceService,
     private storeAddCartService : StoreAddCartService,
-    private fb :FormBuilder
+    private fb :FormBuilder,
+    private sharedDataService: SharedDataService,
     
     
-  ){
-    this.userId = this.userIdService.getUserId();
-
-  }
+  ){}
 
   
   ngOnInit(){
+    this.setUserContextData();
 
     this.updatedStoreCart = this.fb.group({
       quantity : [null , [Validators.required]]
@@ -42,9 +41,14 @@ export class StoreAddCartComponent {
 
   }
 
+  async setUserContextData(): Promise<void> {
+    this.userContext = this.sharedDataService.getContext();
+  }
+
+
   getAllAddCartitem() {
-    if (this.userId !== undefined) {
-      this.storeAddCartService.getAllStoreCart(this.userId).subscribe((res) => {
+    if (this.userContext.Id !== undefined) {
+      this.storeAddCartService.getAllStoreCart(this.userContext.Id).subscribe((res) => {
         console.log(res);
         this.addcartdetils = res;
       });

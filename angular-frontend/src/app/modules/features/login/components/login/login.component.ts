@@ -69,7 +69,7 @@ export class LoginComponent {
   navigateToADMIN(): void {
     this.isLoggedIn = true;
     this.sharedService.setData(this.isLoggedIn);
-    this.router.navigate(['/admin/drivers']);
+    this.router.navigate(['/admin1111/drivers']);
   }
 
 

@@ -2,39 +2,43 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StoreItemService } from '../../../service/store-item.service';
-import { UserIdServiceService } from '../../../service/user-id-service.service';
 import { StoreAddCartService } from '../../../service/store-add-cart.service';
+import { SharedDataService } from '../../../modules/core/services/shared-data.service';
 
 
 @Component({
   selector: 'app-store-product-discription',
   templateUrl: './store-product-discription.component.html',
   styleUrl: './store-product-discription.component.scss'
+
 })
 export class StoreProductDiscriptionComponent implements OnInit{
 
   ProductDetails!: FormGroup;
   id!: number;
   description!: string ;
-  userId: number | undefined;
+  
+  userContext: any = '';
 
   constructor(
     private activaterRoute: ActivatedRoute,
     private storeItemService: StoreItemService,
-    private userIdService: UserIdServiceService,
+    private sharedDataService: SharedDataService,
     private fb: FormBuilder,
     private router: Router,
     private storeAddCart: StoreAddCartService
-  ) {
-
-    this.userId = this.userIdService.getUserId();
-  }
+  ) {}
 
   ngOnInit() {
+    this.setUserContextData();
     this.id = this.activaterRoute.snapshot.params['id'];
     this.initializeForm();
     this.getStoreItemById();
+    console.log("User Id : " , this.userContext.Id)
     
+  }
+  async setUserContextData(): Promise<void> {
+    this.userContext = this.sharedDataService.getContext();
   }
 
   initializeForm() {
@@ -68,11 +72,11 @@ export class StoreProductDiscriptionComponent implements OnInit{
   
 
   gotoAddToCart() {
-    if (this.userId) {
+    if (this.userContext.Id) {
       const cartItem = {
-        user: this.userId,
+        user: this.userContext.Id,
         storeItem: this.id,
-        quantity: 1,
+        quantity:this.ProductDetails.value.quantity,
         p_name : this.ProductDetails.value.name , 
         p_price : this.ProductDetails.value.price
       };
@@ -81,7 +85,7 @@ export class StoreProductDiscriptionComponent implements OnInit{
 
       this.storeAddCart.postStoreAddCart(cartItem).subscribe((response) => {
         console.log('Item added to cart:', response);
-        this.router.navigateByUrl("user/storeCart/" + this.userId); 
+        this.router.navigateByUrl("user/storeCart/" + this.userContext.ID ); 
       }, (error) => {
         console.error('Error adding item to cart:', error);
       });
