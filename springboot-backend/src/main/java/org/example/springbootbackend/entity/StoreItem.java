@@ -36,8 +36,7 @@ public class StoreItem {
     @Column(columnDefinition = "LONGBLOB")
     private  byte[] data ;
 
-//    @OneToMany(mappedBy = "storeItem")
-//    private List<FeedBackRating> feedBackRatingList;
+
 
     @OneToMany(mappedBy = "storeItem", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
@@ -46,13 +45,25 @@ public class StoreItem {
     @OneToMany(mappedBy = "storeItem")
     private List<StoreCart> storeCarts;
 
+//    @OneToMany(mappedBy = "storeItem")
+//    private List<FeedBackRating> feedBackRatingList;
+
+
+
+    @OneToMany(mappedBy = "storeItem")
+    private List<FeedbackStore> feedbackStores;
+
     public StoreItemDto toDto(ModelMapper mapper) {
         StoreItemDto storeItemDto = mapper.map(this, StoreItemDto.class);
 
 //        storeItemDto.setRatingId(this.rating.getRatingId());
 //        if (!feedBackRatingList.isEmpty()) {
 //            storeItemDto.setFeedBackRatingDtoList(this.feedBackRatingList.stream().map(feedBackRating -> feedBackRating.toDto(modelMapper)).toList());
-//        }
+//        }\
+
+        if(!feedbackStores.isEmpty()){
+            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
+        }
 
         return storeItemDto;
     }

@@ -4,6 +4,8 @@ import lombok.Data;
 import org.example.springbootbackend.entity.StoreItem;
 import org.modelmapper.ModelMapper;
 
+import java.util.List;
+
 @Data
 public class StoreItemDto {
     private Long id;
@@ -15,6 +17,7 @@ public class StoreItemDto {
 //    private Long empId;
 
     //private List<FeedBackRatingDto> feedBackRatingDtoList;
+    private List<FeedbackStoreDto> feedbackStoreDtoList;
 
     public StoreItem toEntity(ModelMapper mapper){
         StoreItem storeItem = mapper.map(this, StoreItem.class);

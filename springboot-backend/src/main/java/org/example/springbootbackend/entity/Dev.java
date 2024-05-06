@@ -1,12 +1,15 @@
 package org.example.springbootbackend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.springbootbackend.utils.Role;
 
 @Setter
 @Getter
+@AllArgsConstructor
 @Entity
 public class Dev {
 
