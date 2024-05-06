@@ -8,7 +8,6 @@ import { HomeFooterComponent } from './home-footer/home-footer.component';
 import { HomeServiceComponent } from './home-service/home-service.component';
 import { HomeComponent } from './home/home.component';
 import { StoreAddCartComponent } from './store-add-cart/store-add-cart.component';
-import { StoreHomeLayoutComponent } from './store-home-layout/store-home-layout.component';
 import { StoreHomeComponent } from './store-home/store-home.component';
 import { StoreProductDiscriptionComponent } from './store-product-discription/store-product-discription.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
@@ -19,8 +18,8 @@ const routes: Routes = [
     path:"",
     component:TempUserComponent
   },
-  { 
-    path: 'userHome/:id', 
+  {
+    path: 'userHome/:id',
     component: HomeComponent },
   {
     path:'homeAbout/:id',
@@ -31,14 +30,13 @@ const routes: Routes = [
     path:'homeService/:id',
     component:HomeServiceComponent
   },
+
+  //change path
   {
-    path:'storeHome/:id',
+    path:'storeHome',
     component:StoreHomeComponent
   },
-  {
-    path:'storeHomeLayOut/:id',
-    component:StoreHomeLayoutComponent
-  },
+
   {
     path:'storeCart/:id',
     component:StoreAddCartComponent
