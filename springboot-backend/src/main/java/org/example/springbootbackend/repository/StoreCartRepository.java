@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface StoreCartRepository extends JpaRepository<StoreCart,Long> {
 
-    Optional<List<StoreCart>> findAllByUser(Long user);
+    List<StoreCart> findAllByUser(Long user);
 }

@@ -10,7 +10,7 @@ export class AdminService {
   constructor(private httpClient : HttpClient) { }
 
   getPaymentByMonth(year: number) {
-    return this.httpClient.get<any[]>(`${this.baseURL}/adminPayment?year=${year}`);
+    return this.httpClient.get<any[]>(`${this.baseURL}/api/admin/adminPayment?year=${year}`);
   }
 
 }

@@ -40,7 +40,7 @@ public class Employee {
 //    @OneToOne(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 //    private Bidding bidding;
 //
-//    @OneToMany(mappedBy = "employee")
-//    private List<HiredLabour> hiredLabours;
+    @OneToOne(mappedBy = "employee")
+    private HiredLabour hiredLabours;
 
 }

@@ -10,6 +10,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "feedback")
 public class Feedback {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long r_Id;

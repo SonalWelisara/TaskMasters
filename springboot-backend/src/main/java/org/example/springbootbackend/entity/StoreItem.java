@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.springbootbackend.dto.StoreItemDto;
+import org.modelmapper.ModelMapper;
 
 import java.util.List;
 
@@ -17,7 +19,7 @@ import java.util.List;
 public class StoreItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "name")
     private String Name;
@@ -36,10 +38,6 @@ public class StoreItem {
 
 
 
-
-
-
-
     @OneToMany(mappedBy = "storeItem", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<OrderDetails> orderDetails;
 
@@ -47,4 +45,26 @@ public class StoreItem {
     @OneToMany(mappedBy = "storeItem")
     private List<StoreCart> storeCarts;
 
+//    @OneToMany(mappedBy = "storeItem")
+//    private List<FeedBackRating> feedBackRatingList;
+
+
+
+    @OneToMany(mappedBy = "storeItem")
+    private List<FeedbackStore> feedbackStores;
+
+    public StoreItemDto toDto(ModelMapper mapper) {
+        StoreItemDto storeItemDto = mapper.map(this, StoreItemDto.class);
+
+//        storeItemDto.setRatingId(this.rating.getRatingId());
+//        if (!feedBackRatingList.isEmpty()) {
+//            storeItemDto.setFeedBackRatingDtoList(this.feedBackRatingList.stream().map(feedBackRating -> feedBackRating.toDto(modelMapper)).toList());
+//        }\
+
+        if(!feedbackStores.isEmpty()){
+            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
+        }
+
+        return storeItemDto;
+    }
 }

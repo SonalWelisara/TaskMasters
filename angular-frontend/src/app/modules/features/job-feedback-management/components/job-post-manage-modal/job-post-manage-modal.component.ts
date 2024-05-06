@@ -28,7 +28,7 @@ export class JobPostManageModalComponent {
       skills: new FormControl(null, Validators.required),
       date: new FormControl(null, Validators.required),
       location: new FormControl(null, Validators.required),
-      budget: new FormControl(null, Validators.required),
+      budget: new FormControl(null, [Validators.required, Validators.pattern("^[0-9]*$")]),
     });
   }
 
