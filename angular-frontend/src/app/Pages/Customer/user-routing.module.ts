@@ -11,6 +11,7 @@ import { StoreAddCartComponent } from './store-add-cart/store-add-cart.component
 import { StoreHomeComponent } from './store-home/store-home.component';
 import { StoreProductDiscriptionComponent } from './store-product-discription/store-product-discription.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
+import { PaymentComponent } from './payment/payment.component';
 
 const routes: Routes = [
 
@@ -65,6 +66,12 @@ const routes: Routes = [
   {
     path:"updatebid/:id",
     component: BiddingUpdateComponent
+  }
+
+  //payment
+  {
+    path:"payment",
+    component : PaymentComponent
   }
 
 ];
