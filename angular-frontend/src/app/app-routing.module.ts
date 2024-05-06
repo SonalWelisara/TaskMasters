@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './pages/Admin/layout/layout.component';
-import { TempUserComponent } from './pages/Customer/temp-user/temp-user.component';
+
 
 //
 import { MemberLayoutComponent } from './modules/core/components/member-layout/member-layout.component';
