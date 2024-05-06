@@ -11,10 +11,11 @@ import org.example.springbootbackend.utils.Role;
 public class Dev {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String fName;
     private String lName;
+    @Column(unique = true)
     private String email;
     private String contactNo;
     private String username;

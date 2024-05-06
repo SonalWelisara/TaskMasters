@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-const BASIC_URL_UserStore = "http://localhost:8086/"
+const BASIC_URL_UserStore = "http://localhost:8086/api/store/"
 @Injectable({
   providedIn: 'root'
 })

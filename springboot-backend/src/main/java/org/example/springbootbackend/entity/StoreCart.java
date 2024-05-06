@@ -5,6 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.example.springbootbackend.dto.StoreCartDto;
+import org.example.springbootbackend.dto.StoreItemDto;
+import org.modelmapper.ModelMapper;
 
 @Setter
 @Getter
@@ -15,7 +18,7 @@ import lombok.Setter;
 public class StoreCart {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "quantity")
@@ -34,5 +37,9 @@ public class StoreCart {
     @Column(name = "p_price")
     private Double p_price;
 
+    public StoreCartDto toDto(ModelMapper mapper) {
+        StoreCartDto storeCartDto = mapper.map(this, StoreCartDto.class);
 
+        return storeCartDto;
+    }
 }

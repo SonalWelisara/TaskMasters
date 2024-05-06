@@ -1,10 +1,15 @@
 package org.example.springbootbackend.controller;
 
 import org.example.springbootbackend.entity.Dev;
+import org.example.springbootbackend.entity.User;
+import org.example.springbootbackend.exception.EmailAlreadyExistsException;
 import org.example.springbootbackend.service.DevService;
+import org.example.springbootbackend.utils.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -12,26 +17,19 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/admin")
 public class DevController {
+    private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 
     private final DevService devService;
-
     public DevController(DevService devService) {
         this.devService = devService;
     }
 
-//    @RequestMapping("/devs")
-//    public String getDevs(Model model){
-//
-//        model.addAttribute("devs", devService.findAll());
-//
-//        return "devs";
-//
-//    }
-
     @GetMapping("/devs")
     public ResponseEntity<List<Dev>> getAllDevs() {
-        List<Dev> devs = devService.findAll();
-        return new ResponseEntity<>(devs, HttpStatus.OK);
+        //List<Dev> devs = devService.findAll();
+        //return new ResponseEntity<>(devs, HttpStatus.OK);
+        return  ResponseEntity.status(HttpStatus.OK).body(devService.findAll());
+
     }
 
     @GetMapping("/devs/{id}")
@@ -78,30 +76,23 @@ public class DevController {
         }
     }
 
-    @CrossOrigin(origins = "http://localhost:4200")
+    @CrossOrigin("*")
     @PostMapping("/addDev")
-    public Dev addDev(@RequestBody Dev dev ){
-        return devService.addDev(dev);
+    public ResponseEntity<ApiResponse<Dev>> addDev(@RequestBody Dev dev ){
+        try {
+            logger.info("Starting user registration for {}", dev.getEmail());
+            ApiResponse registeredUserResponse = devService.addDev(dev);
+            logger.info("User registration completed for {}", dev.getEmail());
+            return ResponseEntity.ok(registeredUserResponse);
+        } catch (EmailAlreadyExistsException e) {
+            logger.error("Registration unsuccessful for {}: {}", dev.getEmail(), e.getMessage());
+            ApiResponse<Dev> response = new ApiResponse<>("Registration Unsuccessful, " + e.getMessage(),409);
+            return ResponseEntity.status(401).body(response);
+        }catch (Exception e){
+            logger.error("Registration unsuccessful for {}: {}", dev.getEmail(), e.getMessage());
+            ApiResponse<Dev> response = new ApiResponse<>("Registration Unsuccessful, " + e.getMessage(),200);
+            return ResponseEntity.internalServerError().body(response);
+        }
     }
-
-//    @CrossOrigin(origins = "http://localhost:4200")
-//    @PostMapping("/addDev")
-//    public ResponseEntity<?> addDev(@RequestBody Dev dev) {
-//        // Check if email already exists
-//        Dev existingEmail = devService.findByEmail(dev.getEmail());
-//        if (existingEmail != null) {
-//            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email already exists");
-//        }
-//
-//        // Check if username already exists
-//        Dev existingUsername = devService.findByUsername(dev.getUsername());
-//        if (existingUsername != null) {
-//            return ResponseEntity.status(HttpStatus.CONFLICT).body("Username already exists");
-//        }
-//
-//        // If email and username don't exist, proceed with adding the developer
-//        Dev addedDev = devService.addDev(dev);
-//        return ResponseEntity.status(HttpStatus.CREATED).body(addedDev);
-//    }
 
 }

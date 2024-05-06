@@ -8,29 +8,29 @@ import { Developers } from '../Dto/developers';
 })
 export class DeveloperService {
 
-  private baseURL = "http://localhost:8086"
+  private baseURL = "http://localhost:8086/api"
   constructor(private httpClient : HttpClient) { }
   
   // getDevList(): Observable<any>{
   //   return this.httpClient.get(this.baseURL+"devs")
   // }
   getAllDevs():Observable<any>{
-    return this.httpClient.get(this.baseURL + "/devs")
+    return this.httpClient.get(this.baseURL + "/admin/devs")
   }
 
   getDevById(id:number):Observable<any>{
-    return this.httpClient.get(this.baseURL + "/devs/" + id)
+    return this.httpClient.get(this.baseURL + "/admin/devs/" + id)
   }
 
   updateDev(id:number, dev:any):Observable<any>{
-    return this.httpClient.put(this.baseURL + "/updateDev/" + id , dev);
+    return this.httpClient.put(this.baseURL + "/admin/updateDev/" + id , dev);
   }
 
   deleteDev(id:number):Observable<any>{
-    return this.httpClient.delete(this.baseURL + "/devs/" + id)
+    return this.httpClient.delete(this.baseURL + "/admin/devs/" + id)
   }
 
   addDev(dev:any):Observable<any>{
-    return this.httpClient.post(this.baseURL +"/addDev",dev);
+    return this.httpClient.post(this.baseURL +"/admin/addDev",dev);
   }
 }

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DeveloperService } from '../../../service/developer.service';
-import { AuthService } from '../../../service/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-add-dev',
@@ -11,16 +11,13 @@ import { AuthService } from '../../../service/auth.service';
 })
 export class AddDevComponent {
 
-  emailExists = false;  //authentication 
-  usernameExists = false;
-
   addDevForm !: FormGroup;
 
   constructor(
     private devService: DeveloperService,
     private fb: FormBuilder,
     private router: Router,
-    private authService: AuthService, // Inject AuthService
+    private toastr: ToastrService,
   ) { }
 
   ngOnInit() {
@@ -34,32 +31,37 @@ export class AddDevComponent {
     });
   }
 
-  addDev() {
-    console.log(this.addDevForm.value);
-    this.devService.addDev(this.addDevForm.value).subscribe((res) => {
-      console.log(res);
-      this.router.navigateByUrl("admin/table")
-    });
+  navigateToDashboard(): void {
+    if (event) {
+      this.router.navigate(['/admin/table']);
+    }
   }
 
-
-
-  // addDev() {
-  //   console.log(this.addDevForm.value);
-  
-  //   // Check if email exists
-  //   this.authService.checkEmailExists(this.addDevForm.value.email).subscribe((emailExists) => {
-  //     this.emailExists = emailExists;
-      
-  //     if (!this.emailExists) {
-  //       // If email doesn't exist, proceed with adding the developer
-  //       this.devService.addDev(this.addDevForm.value).subscribe((res) => {
-  //         console.log(res);
-  //         this.router.navigateByUrl("table");
-  //       });
-  //     }
-  //   });
-  // }
-  
+  addDev() {
+    console.log(this.addDevForm.value);
+    this.devService.addDev(this.addDevForm.value).subscribe({
+      next: (response: any) => {
+        if (response.status === 200) {
+          this.toastr.success(
+            'Registered successfully, Thank you!',
+            'Success'
+          );
+          this.navigateToDashboard();
+        } else {
+          this.toastr.error(
+            'Error in registration',
+            'Error' // other error messages want to consider
+          );
+        }
+      },
+      error: (error) => {
+        if (error.status === 401) {
+          this.toastr.error('Email already exists', 'Error');
+        } else {
+          this.toastr.error('Error in registration', 'Error');
+        }
+      },
+    });
+  }
   
 }
