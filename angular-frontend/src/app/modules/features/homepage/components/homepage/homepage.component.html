@@ -1,0 +1,61 @@
+<div class="container">
+  <table
+    style="width: 100%; height: 100%;"
+  >
+    <div style="padding: 1rem" class="d-flex h-100">
+      <tr>
+        <td style="width: 50%" class="align-content-start main-text">
+          <h1 class="mb-5 text-white">
+            <b>
+              Find skilled labor, get the best deals, and shop for your needs -
+              all in one place!</b
+            >
+          </h1>
+          <h5>
+            <ul class="text-white">
+              <li>
+                TaskMasters connects you with reliable laborers for any job.
+              </li>
+              <li>
+                Get competitive bids and pick the perfect fit for your budget.
+              </li>
+              <li>
+                Rate and review laborers to ensure quality service every time.
+              </li>
+              <li>
+                Shop for everything you need with convenient delivery tracking.
+              </li>
+            </ul>
+          </h5>
+
+          <button type="button" class="btn btn-primary mt-2 fw-bold" style="width: 10rem; height: 3.5rem; font-size: 1.25rem;" (click)="navigateToJobPosting($event)">Post a Job</button>
+        </td>
+        <td style="width: 50%" class="p-5">
+          <mdb-carousel [controls]="false" [animation]="'fade'">
+            <mdb-carousel-item>
+              <img
+                [src]="[carouselImages[0]]"
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+              <img
+              [src]="[carouselImages[1]]"
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+              <img
+              [src]="[carouselImages[2]]"
+                class="d-block w-100 rounded"
+                alt="..."
+              />
+            </mdb-carousel-item>
+          </mdb-carousel>
+        </td>
+      </tr>
+    </div>
+  </table>
+</div>
