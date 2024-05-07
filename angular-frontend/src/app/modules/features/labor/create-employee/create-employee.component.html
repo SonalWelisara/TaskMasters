@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Bizen.com</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .signup-container {
+            max-width: 500px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .signup-container h1 {
+            color: #333;
+            margin-bottom: 40px;
+        }
+       
+        .signup-container p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .signup-form .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .signup-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .signup-form input[type="text"],
+        .signup-form input[type="email"],
+        .signup-form input[type="password"],
+        .signup-form input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .signup-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup-form button:hover {
+            background-color: #fff;
+            color: #007bff;
+        }
+
+        .signup-container p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .signup-container p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Error Message Styling */
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .password-input-container {
+            position: relative;
+        }
+
+        .password-input-container input {
+            padding-right: 30px; /* Adjust padding to accommodate the button */
+        }
+
+        .password-input-container button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            width: 50px;
+            height: 35px;
+        }
+
+        .password-input-container button img {
+            width: 20px;  
+            height: auto;
+        }
+
+        .password-input-container button:hover img {
+            filter: brightness(90%);  
+        }
+        .headers {
+            background-color:#4169E1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .navi {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 1000px;
+    overflow: hidden;
+}
+
+.navi li {
+    float: left;
+}
+
+.navi li a {
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'YourCreativeFont', sans-serif;  
+}
+
+.navi li a:hover {
+    background-color: #00BFFF;  
+}
+
+    </style>
+</head>
+<body>
+<header class="headers">
+    <a href="homepage.php" class="logo">
+         
+    </a>
+    <nav>
+        <ul class="navi">
+            <li><a href="employee-list.component.css">HOME</a></li>
+            <li><a href="service.php">SERVICE</a></li>
+            <li><a href="package.php">PACKAGE</a></li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
+            <li><a href="employee-login" class="contact">Login</a></li>
+
+        </ul>
+
+    </nav>
+</header>
+<div class="signup-container">
+    <h1>Welcome to Task Masters!</h1>
+    <p>Join our awesome team by creating your employee account.</p>
+    <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="firstName">Name</label>
+            <input type="text" id="firstName" formControlName="firstName">
+            <div class="error-message" *ngIf="signupForm.get('firstName')?.invalid && signupForm.get('firstName')?.touched">
+                <div *ngIf="signupForm.get('firstName')?.errors?.['required']">Name is required</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="emailId">Email ID</label>
+            <input type="email" id="emailId" formControlName="emailId">
+            <div class="error-message" *ngIf="signupForm.get('emailId')?.invalid && signupForm.get('emailId')?.touched">
+                <div *ngIf="signupForm.get('emailId')?.errors?.['required']">Email is required</div>
+                <div *ngIf="signupForm.get('emailId')?.errors?.['email']">Invalid email format</div>
+            </div>
+        </div>
+         
+        <div class="form-group">
+            <label for="mobile">Mobile</label>
+            <input type="text" id="mobile" formControlName="mobile" pattern="[0-9]*">
+            <div class="error-message" *ngIf="signupForm.get('mobile')?.invalid && signupForm.get('mobile')?.touched">
+                <div *ngIf="signupForm.get('mobile')?.errors?.['required']">Mobile is required</div>
+                <div *ngIf="signupForm.get('mobile')?.errors?.['pattern']">Invalid mobile format</div>
+                <div *ngIf="signupForm.get('mobile')?.errors?.['maxlength']">Mobile Number cannot be more than 10 characters</div>
+                <div *ngIf="signupForm.get('mobile')?.errors?.['minlength']">Mobile Number cannot be less than 10 characters</div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="password-input-container">
+                <input type="{{ showPassword ? 'text' : 'password' }}" id="password" formControlName="password">
+                <button type="button" (click)="togglePasswordVisibility()">
+                    <img src="assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password">
+                </button>
+            </div>
+            <div class="error-message" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+                <div *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</div>
+                <div *ngIf="signupForm.get('password')?.errors?.['minlength']">Password should be at least 6 characters  </div>
+                <div *ngIf="signupForm.get('password')?.errors?.['maxlength']">Password cannot be more than 8 characters  </div>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <div class="password-input-container">
+            <input type="{{ showPassword ? 'text' : 'password' }}" id="confirmPassword" formControlName="confirmPassword">
+            <button type="button" (click)="togglePasswordVisibility()">
+                <img src="assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password">
+            </button></div>
+            <div class="error-message" *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
+                <div *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required</div>
+                <div *ngIf="signupForm.hasError('passwordMismatch')">Passwords do not match</div>
+            </div>
+        </div>
+        
+        <button type="button" (click)="onSubmit()">Sign Up</button>
+
+    </form>
+    
+    <p>Already have an account? <a href="employee-login">Log In</a></p>
+</div>
+</body>
+</html>

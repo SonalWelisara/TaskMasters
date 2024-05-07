@@ -1,0 +1,15 @@
+<div *ngIf="feedbacks">
+    <h2>All Feedbacks</h2>
+    <ul>
+        <li *ngFor="let feedback of feedbacks">
+            <strong>Feedback:</strong> {{ feedback.feedback }}
+            <strong>Feedback ID:</strong> {{ feedback.fid }}
+            <strong>Feedback ID:</strong> {{ feedback.employeeId }}<br>
+            <button (click)="deleteFeedback(feedback.fid)">Delete</button><br>
+            <hr>
+        </li>
+    </ul>
+</div>
+<div *ngIf="!feedbacks">
+    <p>No feedbacks available.</p>
+</div>

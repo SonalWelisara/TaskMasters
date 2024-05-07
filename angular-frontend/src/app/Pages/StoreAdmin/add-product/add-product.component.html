@@ -1,0 +1,65 @@
+<div class="container">
+  
+
+  <h1>Add Product</h1>
+
+  <form [formGroup]="postStoreItemForm">
+    <!-- <div class="file-upload-container">
+      <label class="file-upload-label">
+        <span>Select a File</span>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden>
+        <mat-icon>attach_file</mat-icon>
+      </label>
+
+      <div class="image-preview" *ngIf="selectedFile">
+        <div class="circle-image">
+          <div class="preview-image" [src] = "imagePreview" alt = "selected image "></div>
+        </div>
+      </div>
+    </div> -->
+
+   
+
+    <div class="input-align">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">File</label>
+        <input type="file" class="form-control" placeholder="file">
+      </div>
+   
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="email" class="form-control" formControlName="name" placeholder="Name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Price</label>
+        <input type="number" class="form-control" formControlName="price"  placeholder="Price"  pattern="[0-9]+(\.[0-9]+)?">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label "  >Category</label>
+        <select class="form-select selectcustom"  formControlName="category">
+          <option selected disabled></option>
+          <option value="Safety Equipment" >Safety Equipment</option>
+          <option value="Cleaning Supplies" >Cleaning Supplies</option>
+          <option value="Power Tools" > Power Tools</option>
+          <option value="Tools" > Tools</option>
+          <option value="Hardware & Fasteners" > Hardware & Fasteners</option>
+          
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label"  >Quantity</label>
+        <input type="number" class="form-control" formControlName="quantity" pattern="[0-9]+(\.[0-9]+)?"  placeholder="Quantity"  pattern="[0-9]*">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Discription</label>
+        <textarea class="form-control txtAreacustom" formControlName="description"  rows="3" ></textarea>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-lg btn-center" (click)="postStoreItem()">Add Product</button>
+
+
+    </div>
+  </form>
+</div>

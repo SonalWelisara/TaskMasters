@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <script src="https://kit.fontawesome.com/b3ca95fff7.js" crossorigin="anonymous"></script>
+    <title>Bizen.com/Home</title>
+    <!-- Original head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <style>
+        /* Stylesheet */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #343a40;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .headers {
+            background-color:#4169E1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            border-radius: px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .employee-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .employee-table th, .employee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .employee-table th {
+            background-color: #343a40;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .employee-table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .view-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-button:hover {
+            background-color: #218838;
+        }
+        .logoimg {
+    width: 80px;
+    height: 25px;
+    margin-left: 10px;
+    padding-left: 1px;
+    background-color: transparent; /* Remove background */
+}
+    
+.navi li {
+    display: inline-block;
+    margin-right: 20px;
+    font-family:Sora,'sans';
+    
+}
+header{
+    display: flex;
+    padding-block: 5px;
+    justify-content: space-between;
+    background-color: aliceblue;
+    border-block-end: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;  /*property ensures that the header appears on top of other elements.*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.navi {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.navi li {
+    float: left;
+}
+
+.navi li a {
+    display: block;
+    color: white; /* white letter color */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'YourCreativeFont', sans-serif; /* Specify your creative font */
+}
+
+.navi li a:hover {
+    background-color: #00BFFF; /* Change background color on hover if needed */
+}
+.search-container {
+    position: relative;
+    padding-left: 160px; /* Adjust padding as needed */
+    margin-right: 20px;
+}
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 200px; /* Adjust width as needed */
+}
+
+.search-container .fas.fa-search {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #666;
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+<header class="headers">
+    <a href="homepage.php" class="logo">
+         
+    </a>
+    <nav>
+        <ul class="navi">
+            <li><a href="employee-list.component.css">HOME</a></li>
+            <li><a href="service.php">SERVICE</a></li>
+            <li><a href="package.php">PACKAGE</a></li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
+            <li><a href="employee-login" class="contact">Login</a></li>
+
+        </ul>
+
+    </nav>
+</header><br><br><br><br><br> <br><br><br><br><br>
+ 
+<div class="search-container">
+    <input type="text" placeholder="Search by First Name" [(ngModel)]="firstNameSearch" (input)="filterEmployees()">
+    <i class="fas fa-search"></i> <!-- Font Awesome search icon, if needed -->
+</div><br><br>
+<div class="container">
+    <table class="employee-table">
+        <!-- Table headers -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Profile</th>
+                <th>Name</th>
+                 
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through filtered employees instead of all employees -->
+            <tr *ngFor="let employee of filteredEmployees">
+                <td>{{ employee.id }}</td>
+                <td><img class="profile-image" src="assets/images/emppfp.jpg" alt="Profile"></td>
+                <td>{{ employee.firstName }} </td>
+                
+                <td>{{ employee.emailId }}</td>
+                <td>{{ employee.mobile }}</td>
+                <td>
+                    <button class="view-button" (click)="employeedetails(employee.id)">View</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

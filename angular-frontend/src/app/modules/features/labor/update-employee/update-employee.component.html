@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update Employee - Bizen.com</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-container h3 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #666;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
+.headers {
+            background-color:#4169E1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .navi {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 980px;
+    overflow: hidden;
+}
+
+.navi li {
+    float: left;
+}
+
+.navi li a {
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'YourCreativeFont', sans-serif;  
+}
+
+.navi li a:hover {
+    background-color: #00BFFF;  
+}
+.submit-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+} 
+</style>
+<header class="headers">
+    <a href="homepage.php" class="logo">
+         
+    </a>
+    <nav>
+        <ul class="navi">
+            <li><a href="employee-list.component.css">HOME</a></li>
+            <li><a href="service.php">SERVICE</a></li>
+            <li><a href="package.php">PACKAGE</a></li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
+            <li><a href="employee-login" class="contact">Login</a></li>
+
+        </ul>
+
+    </nav>
+</header>
+<body>
+<div class="form-container">
+    <h3>Update Employee</h3>
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="id">ID:</label>
+            <input type="number" id="id" name="id" [(ngModel)]="employee.id" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" [(ngModel)]="employee.firstName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" [(ngModel)]="employee.lastName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="emailId">Email ID:</label>
+            <input type="email" id="emailId" name="emailId" [(ngModel)]="employee.emailId" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" [(ngModel)]="employee.address" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="mobile">Mobile:</label>
+            <input type="text" id="mobile" name="mobile" [(ngModel)]="employee.mobile" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" [(ngModel)]="employee.age" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="employee.password" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" class="form-control">
+        </div>
+
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>
+</body>
+</html>

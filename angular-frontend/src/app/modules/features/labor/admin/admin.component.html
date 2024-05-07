@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <script src="https://kit.fontawesome.com/b3ca95fff7.js" crossorigin="anonymous"></script>
+    <title>Bizen.com/Home</title>
+    <!-- Original head content -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee List</title>
+    <style>
+        /* Stylesheet */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #f7f7f7;
+            border-radius: px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .employee-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .employee-table th, .employee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        .employee-table th {
+            background-color: #343a40;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .employee-table tbody tr:hover {
+            background-color: #f2f2f2;
+        }
+
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .view-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .view-button:hover {
+            background-color: #218838;
+        }
+
+        .search-container {
+            position: relative;
+            padding-left: 160px; /* Adjust padding as needed */
+            margin-right: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .search-container .fas.fa-search {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: #666;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<br><br><br><br><br> <br><br><br><br><br>
+ 
+<div class="search-container">
+    <input type="text" placeholder="Search by First Name" [(ngModel)]="firstNameSearch" (input)="filterEmployees()">
+    <i class="fas fa-search"></i> <!-- Font Awesome search icon, if needed -->
+</div><br><br>
+<div class="container">
+    <table class="employee-table">
+        <!-- Table headers -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Profile</th>
+                <th>Name</th>
+                 
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Loop through filtered employees instead of all employees -->
+            <tr *ngFor="let employee of filteredEmployees">
+                <td>{{ employee.id }}</td>
+                <td><img class="profile-image" src="assets/images/emppfp.jpg" alt="Profile"></td>
+                <td>{{ employee.firstName }} </td>
+                
+                <td>{{ employee.emailId }}</td>
+                <td>{{ employee.mobile }}</td>
+                <td>
+                    <button class="view-button" (click)="employeedetails(employee.id)"></button>
+                    
+                    <button class="view-button" (click)="deleteEmployee(employee.id)">View</button>
+                    
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

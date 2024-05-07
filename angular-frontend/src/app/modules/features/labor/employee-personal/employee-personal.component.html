@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Profile - Bizen.com</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-container h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-details {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.detail {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.detail label {
+    flex: 1;
+    font-weight: bold;
+    color: #666;
+}
+
+.detail span {
+    flex: 2;
+    color: #333;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.delete-button,
+.update-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-right: 10px;
+}
+
+.delete-button:hover,
+.update-button:hover {
+    background-color: #0056b3;
+}  .headers {
+            background-color:#4169E1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .navi {
+    list-style-type: none;
+    margin: 0;
+    padding-left: 980px;
+    overflow: hidden;
+}
+
+.navi li {
+    float: left;
+}
+
+.navi li a {
+    display: block;
+    color: white; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'YourCreativeFont', sans-serif;  
+}
+
+.navi li a:hover {
+    background-color: #00BFFF;  
+}
+</style>
+<header class="headers">
+    <a href="homepage.php" class="logo">
+         
+    </a>
+    <nav>
+        <ul class="navi">
+            <li><a href="employee-list.component.css">HOME</a></li>
+            <li><a href="service.php">SERVICE</a></li>
+            <li><a href="package.php">PACKAGE</a></li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
+            <li><a href="employee-login" class="contact">Login</a></li>
+
+        </ul>
+
+    </nav>
+</header>
+<body>
+<div class="profile-container">
+    <h1>User Profile</h1>
+    <img src="assets/images/emppfp.jpg" alt="Profile Picture" class="profile-image">
+    <div class="profile-details">
+        <div class="detail">
+            <label for="id">ID:</label>
+            <span>{{ employee?.id }}</span>
+        </div>
+        <div class="detail">
+            <label for="firstName">First Name:</label>
+            <span>{{ employee?.firstName }}</span>
+        </div>
+        <div class="detail">
+            <label for="lastName">Last Name:</label>
+            <span>{{ employee?.lastName }}</span>
+        </div>
+        <div class="detail">
+            <label for="emailId">Email ID:</label>
+            <span>{{ employee?.emailId }}</span>
+        </div>
+        <div class="detail">
+            <label for="address">Address:</label>
+            <span>{{ employee?.address }}</span>
+        </div>
+        <div class="detail">
+            <label for="mobile">Mobile:</label>
+            <span>{{ employee?.mobile }}</span>
+        </div>
+        <div class="detail">
+            <label for="age">Age:</label>
+            <span>{{ employee?.age }}</span>
+        </div>
+       
+    </div>
+    <div class="actions">
+         
+        <button class="delete-button" (click)="deleteFeedbacks(employee?.id)">Delete</button>
+
+        <button class="update-button" (click)="updateEmployee(employee?.id)">Update</button>
+    </div>
+   
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Update Product</h1>
+  <form [formGroup]="updateStoreItemFrom">
+    <div class="input-align">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" placeholder="Name">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Price</label>
+        <input type="number" class="form-control" formControlName="price" pattern="[0-9]+(\.[0-9]+)?" placeholder="Price" pattern="[0-9]+(\.[0-9]+)?">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label ">Category</label>
+        <select class="form-select selectcustom" formControlName="category">
+          <option selected disabled></option>
+          <option value="Safety Equipment" >Safety Equipment</option>
+          <option value="Cleaning Supplies" >Cleaning Supplies</option>
+          <option value="Power Tools" > Power Tools</option>
+          <option value="Tools" > Tools</option>
+          <option value="Hardware & Fasteners" > Hardware & Fasteners</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Quantity</label>
+        <input type="number" class="form-control" formControlName="quantity" placeholder="Quantity" pattern="[0-9]+(\.[0-9]+)?">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+        <textarea class="form-control" formControlName="description"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg btn-center" (click)="updateStoreItem()">Update Product</button>
+    </div>
+  </form>
+</div>

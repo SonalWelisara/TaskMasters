@@ -1,0 +1,45 @@
+<div>
+  <div class="header">
+    <button nz-button nzType="primary" (click)="toAddDev()">
+      Add Developer
+    </button>
+  </div>
+  <div>
+    <h4>Developers</h4>
+    <nz-table #basicTable [nzData]="devs">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th>Username</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.id }}</td>
+          <td>{{ data.fname }} {{ data.lname }}</td>
+          <td>{{ data.email }}</td>
+          <td>{{ data.contactNo }}</td>
+          <td>{{ data.username }}</td>
+          <td>
+            <button nz-button nzType="primary" (click)="toDevUpdate(data.id)">
+              Update
+            </button>
+            <nz-divider nzType="vertical"></nz-divider>
+            <button
+              nz-button
+              nzType="primary"
+              nzDanger
+              (click)="deleteDev(data.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+  </div>
+</div>
