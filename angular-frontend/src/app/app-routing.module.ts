@@ -39,7 +39,7 @@ const routes: Routes = [
   {path:'employee-personal/:id',component:EmployeePersonalComponent},
   
   {path:'feedbacklist',component:FeedbackListComponent},
-  {path:'feedbackadmin',component:AdminComponent},
+  {path:'laboradmin',component:AdminComponent},
   
 {path:'employees',component:EmployeeListComponent},
   {

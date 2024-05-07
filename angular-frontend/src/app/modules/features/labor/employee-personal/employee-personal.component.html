@@ -20,7 +20,10 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    overflow-y: auto; /* Add this line */
+    max-height: 80vh; /* Example maximum height */
 }
+
 
 .profile-container h1 {
     color: #333;
@@ -128,7 +131,7 @@ body {
 <body>
 <div class="profile-container">
     <h1>User Profile</h1>
-    <img src="../../../../../assets/images/emppfp.jpg" alt="Profile Picture" class="profile-image">
+    <img src="assets/images/emppfp.jpg" alt="Profile Picture" class="profile-image">
     <div class="profile-details">
         <div class="detail">
             <label for="id">ID:</label>
@@ -166,7 +169,8 @@ body {
 
         <button class="update-button" (click)="updateEmployee(employee?.id)">Update</button>
     </div>
-   
+   <br>  <br>
+    
 </div>
 </body>
 </html>

@@ -1,15 +1,62 @@
-<div *ngIf="feedbacks">
-    <h2>All Feedbacks</h2>
-    <ul>
-        <li *ngFor="let feedback of feedbacks">
-            <strong>Feedback:</strong> {{ feedback.feedback }}
-            <strong>Feedback ID:</strong> {{ feedback.fid }}
-            <strong>Feedback ID:</strong> {{ feedback.employeeId }}<br>
-            <button (click)="deleteFeedback(feedback.fid)">Delete</button><br>
-            <hr>
-        </li>
-    </ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Bizen.com</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        .list-group-item {
+            margin-bottom: 10px;
+        }
+
+        .btn-danger {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+        .btn-danger:hover {
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+    </style>
+</head>
+<body>
+<header class="headers">
+    <a href="homepage.php" class="logo"></a>
+   
+</header>
+
+<div class="container">
+    <div *ngIf="feedbacks">
+        <h2>All Feedbacks</h2>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let feedback of feedbacks">
+                <strong>Feedback:</strong> {{ feedback.feedback }}<br>
+                <strong>Feedback ID:</strong> {{ feedback.fid }}<br>
+ 
+                <button (click)="deleteFeedback(feedback.fid)" class="btn btn-danger">Delete</button>
+            </li>
+        </ul>
+    </div>
+    <div *ngIf="!feedbacks" class="alert alert-info">
+        <p>No feedbacks available.</p>
+    </div>
 </div>
-<div *ngIf="!feedbacks">
-    <p>No feedbacks available.</p>
-</div>
+
+<!-- Bootstrap JS (Optional) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
