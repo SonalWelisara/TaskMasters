@@ -35,6 +35,7 @@ const routes: Routes = [
   {path: 'employee-list',component:  EmployeeListComponent},
   {path:'employee-login',component:EmployeeLoginComponent},
   {path: 'employee-personal',component: EmployeePersonalComponent},
+
   {path:'employee-personal/:id',component:EmployeePersonalComponent},
   
   {path:'feedbacklist',component:FeedbackListComponent},

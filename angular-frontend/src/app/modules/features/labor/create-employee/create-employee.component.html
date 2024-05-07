@@ -12,6 +12,39 @@
             background-color: #f8f9fa;
         }
 
+        .headers {
+            background-color: #4169E1;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .navi {
+            list-style-type: none;
+            margin: 0;
+            padding-left: 1000px;
+            overflow: hidden;
+        }
+
+        .navi li {
+            float: left;
+        }
+
+        .navi li a {
+            display: block;
+            color: white; 
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-family: 'YourCreativeFont', sans-serif;  
+        }
+
+        .navi li a:hover {
+            background-color: #00BFFF;  
+        }
+
         .signup-container {
             max-width: 500px;
             margin: 100px auto;
@@ -26,7 +59,7 @@
             color: #333;
             margin-bottom: 40px;
         }
-       
+
         .signup-container p {
             color: #666;
             margin-bottom: 30px;
@@ -35,6 +68,7 @@
         .signup-form .form-group {
             margin-bottom: 20px;
             text-align: left;
+            position: relative;
         }
 
         .signup-form label {
@@ -77,70 +111,23 @@
             text-decoration: underline;
         }
 
-        /* Error Message Styling */
         .error-message {
             color: red;
             font-size: 12px;
-            margin-top: 5px;
+            padding-top: 35px;
+            bottom: 20px;
+            left: 0;
         }
         .password-input-container {
-            position: relative;
-        }
-
-        .password-input-container input {
-            padding-right: 30px; /* Adjust padding to accommodate the button */
-        }
-
-        .password-input-container button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            right: 5px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            width: 50px;
-            height: 35px;
-        }
-
-        .password-input-container button img {
-            width: 20px;  
-            height: auto;
-        }
-
-        .password-input-container button:hover img {
-            filter: brightness(90%);  
-        }
-        .headers {
-            background-color:#4169E1;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .navi {
-    list-style-type: none;
-    margin: 0;
-    padding-left: 1000px;
-    overflow: hidden;
+    position: relative;
 }
 
-.navi li {
-    float: left;
-}
-
-.navi li a {
-    display: block;
-    color: white; 
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family: 'YourCreativeFont', sans-serif;  
-}
-
-.navi li a:hover {
-    background-color: #00BFFF;  
+.password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
 
     </style>
@@ -198,9 +185,7 @@
             <label for="password">Password</label>
             <div class="password-input-container">
                 <input type="{{ showPassword ? 'text' : 'password' }}" id="password" formControlName="password">
-                <button type="button" (click)="togglePasswordVisibility()">
-                    <img src="assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password">
-                </button>
+                <img src="../../../../../assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password" class="password-toggle" (click)="togglePasswordVisibility()"  width="15" height="15">
             </div>
             <div class="error-message" *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
                 <div *ngIf="signupForm.get('password')?.errors?.['required']">Password is required</div>
@@ -209,18 +194,19 @@
             </div>
         </div>
         
+        
         <div class="form-group">
             <label for="confirmPassword">Confirm Password</label>
             <div class="password-input-container">
-            <input type="{{ showPassword ? 'text' : 'password' }}" id="confirmPassword" formControlName="confirmPassword">
-            <button type="button" (click)="togglePasswordVisibility()">
-                <img src="assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password">
-            </button></div>
+                <input type="{{ showPassword ? 'text' : 'password' }}" id="confirmPassword" formControlName="confirmPassword">
+                <img src="assets/images/eye.png" alt="{{ showPassword ? 'Hide' : 'Show' }} Password" class="password-toggle" (click)="togglePasswordVisibility()" width="15" height="15">
+            </div>
             <div class="error-message" *ngIf="signupForm.get('confirmPassword')?.invalid && signupForm.get('confirmPassword')?.touched">
                 <div *ngIf="signupForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required</div>
                 <div *ngIf="signupForm.hasError('passwordMismatch')">Passwords do not match</div>
             </div>
         </div>
+        
         
         <button type="button" (click)="onSubmit()">Sign Up</button>
 

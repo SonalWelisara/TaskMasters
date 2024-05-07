@@ -4,6 +4,7 @@ import org.example.springbootbackend.domain.Employee;
 import org.example.springbootbackend.Exception.ResourceNotFoundException;
 import org.example.springbootbackend.repo.EmployeeRepository;
 import org.example.springbootbackend.services.LaborService;
+import org.example.springbootbackend.services.TwilioSmsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,8 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+    @Autowired
+    private TwilioSmsService twilioSmsService;
 
     @GetMapping("/employees")
     public List<Employee> getAllEmployees() {
@@ -32,9 +35,11 @@ public class EmployeeController {
 
     @PostMapping("/employees")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
-        // No password encoding here, it should be handled in a security configuration
+       // String formattedPhoneNumber = "+94" + employee.getMobile();
 
-        // Save the employee
+        // Send SMS notification to the newly added employee
+       // twilioSmsService.sendSms(formattedPhoneNumber, "Welcome to Task Masters you have successfully logged into the system");
+
         Employee savedEmployee = employeeRepository.save(employee);
         return ResponseEntity.ok(savedEmployee);
     }
