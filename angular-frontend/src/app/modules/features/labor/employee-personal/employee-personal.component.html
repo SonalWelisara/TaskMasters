@@ -115,12 +115,11 @@ body {
     </a>
     <nav>
         <ul class="navi">
-            <li><a href="employee-list.component.css">HOME</a></li>
-            <li><a href="service.php">SERVICE</a></li>
-            <li><a href="package.php">PACKAGE</a></li>
-            <li><a href="aboutus.php">ABOUT US</a></li>
-            <li><a href="employee-login" class="contact">Login</a></li>
-
+            <li><a routerLink="/homepage">HOME</a></li>
+            <li><a routerLink="/employee-list">employee-list</a></li>
+            <li><a routerLink="/faq-section">FAQ</a></li>
+            <li><a routerLink="/user/storeHome">Store</a></li>
+            <li><a routerLink="/employeelogin">Login</a></li>
         </ul>
 
     </nav>
@@ -166,7 +165,7 @@ body {
 
         <button class="update-button" (click)="updateEmployee(employee?.id)">Update</button>
     </div>
-   
+    <br> <br> <br> <br>
 </div>
 </body>
 </html>
