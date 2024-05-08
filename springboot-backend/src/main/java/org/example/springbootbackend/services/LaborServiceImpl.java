@@ -5,6 +5,7 @@ import org.example.springbootbackend.Exception.ResourceNotFoundException;
 import org.example.springbootbackend.repo.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -29,6 +30,8 @@ public class LaborServiceImpl implements LaborService {
 
     @Override
     public Employee createEmployee(Employee employee) {
+        // Encrypt the password before saving
+        employee.setPassword(employee.getPassword());
         return employeeRepository.save(employee);
     }
 
@@ -69,8 +72,12 @@ public class LaborServiceImpl implements LaborService {
     public String login2(Employee credentials) {
         Employee employee = employeeRepository.findByEmailId(credentials.getEmailId());
 
-        // Password verification should be handled in the controller
-
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Invalid email or password");
-    }
-}
+        if (employee != null) {
+            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+            if (encoder.matches(credentials.getPassword(), employee.getPassword())) {
+                // Password verification successful
+                return "Login successful";
+            }
+        }
+        return null;
+    }}

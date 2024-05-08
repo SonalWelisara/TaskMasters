@@ -3,6 +3,7 @@ package org.example.springbootbackend.domain;
 
 
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "employeess")
@@ -112,14 +113,14 @@ public class Employee {
         this.age = age;
     }
 
+    public void setPassword(String password) {
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        this.password = encoder.encode(password);
+    }
+
     public String getPassword() {
         return password;
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public byte[] getProfile() {
         return profile;
     }
