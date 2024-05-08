@@ -33,7 +33,7 @@ const routes: Routes = [
   {path:'employee-login/id',component:EmployeeLoginComponent},
   { path: 'employee-details', component: EmployeeDetailsComponent },
   {path: 'employee-list',component:  EmployeeListComponent},
-  {path:'employee-login',component:EmployeeLoginComponent},
+  {path:'employeelogin',component:EmployeeLoginComponent},
   {path: 'employee-personal',component: EmployeePersonalComponent},
 
   {path:'employee-personal/:id',component:EmployeePersonalComponent},

@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
- 
+import { Employee } from '../../../../employee';
 import { Observable } from 'rxjs';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+ 
+ 
 import { EmployeeService } from '../../../../employee.service';
- import { Employee } from '../../../../employee';
-import { FeedbackService } from '../../../../feedback-service.service';
+import { FeedbackService } from '../../../../feedback.spec';
 
 @Component({
   selector: 'app-employee-personal',
