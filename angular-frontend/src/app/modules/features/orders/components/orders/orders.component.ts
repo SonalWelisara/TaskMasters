@@ -40,6 +40,6 @@ export class OrdersComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   assignOrder(order: any) {
-      this.router.navigate(['/admin/drivers']);
+      this.router.navigate(['/adminDriver/drivers']);
   }
 }
