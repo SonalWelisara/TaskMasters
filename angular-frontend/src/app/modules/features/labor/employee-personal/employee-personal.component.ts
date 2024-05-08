@@ -57,6 +57,7 @@ export class EmployeePersonalComponent implements OnInit {
   }
   
   deleteFeedbacks(employeeId: number | undefined) {
+    this.deleteEmployee(employeeId)
     if (employeeId !== undefined) {
       // Call your service method to delete feedbacks by employee ID
       this.feedbackService.deleteFeedbacksByEmployeeId(employeeId).subscribe(
