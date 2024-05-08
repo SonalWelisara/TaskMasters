@@ -35,7 +35,7 @@ export class UpdateEmployeeComponent implements OnInit {
     if (this.id) {
       this.employeeService.updateEmployee(this.id, this.employee).subscribe(
         data => {
-          this.gotoEmployeeList();
+          this.gotoEmployeeList(this.id);
         },
         error => {
           console.error('Error updating employee:', error);
@@ -46,7 +46,10 @@ export class UpdateEmployeeComponent implements OnInit {
     }
   }
 
-  gotoEmployeeList() {
-    this.router.navigate(['/employees']);
+  gotoEmployeeList(id: number | undefined) {
+   
+      this.router.navigate(['employee-personal', id]);
+     
   }
+  
 }
