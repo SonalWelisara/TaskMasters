@@ -52,6 +52,17 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.router.navigate(['/register']); 
     }
   }
+  navigate(event: Event): void {
+    if (event) {
+      this.router.navigate(['/employee-list']); 
+    }
+  }
+
+  navigateesignup(event: Event): void {
+    if (event) {
+      this.router.navigate(['/create-employee']); 
+    }
+  }
 
   navigateToJobFeedback(event: Event): void {
     if (event) {
