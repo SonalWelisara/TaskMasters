@@ -45,12 +45,19 @@ export class UpdateDevComponent {
     });
   }
 
+  navigateToDashboard(): void {
+    if (event) {
+      this.router.navigate(['/admin/table']);
+    }
+  }
+
   updateDev(id: number) {
     this.service.updateDev(this.id, this.updateDevForm.value).subscribe((res) => {
       console.log(res);
       if (res.id != null) {
         this.router.navigateByUrl(`admin/updateDev/${id}`);
         this.updateDevForm.patchValue(res);
+        this.navigateToDashboard();
       }
     });
   }
