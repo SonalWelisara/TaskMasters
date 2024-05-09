@@ -111,7 +111,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'admin1111',
+    path: 'orderadmin',
     component: AdminLayoutComponent,
     
     children: [

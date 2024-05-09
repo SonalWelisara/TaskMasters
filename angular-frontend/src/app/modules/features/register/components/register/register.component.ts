@@ -26,7 +26,7 @@ export class RegisterComponent {
     address: new FormControl(null, Validators.required),
     phoneNumber: new FormControl(
       null,
-      Validators.compose([Validators.required, this.validations.validPhone()])
+      Validators.compose([Validators.required, Validators.maxLength(10), this.validations.validPhone()])
     ),
     email: new FormControl(
       null,
