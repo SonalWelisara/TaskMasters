@@ -1,4 +1,4 @@
-<app-store-nav-bar></app-store-nav-bar>
+<app-header></app-header>
 <div>
     <!--Body Content-->
     <div id="page-content">
@@ -33,7 +33,6 @@
                         <div class="col-lg-6 col-md-6 col-sm-12 col-12" >
                                 <div class="product-single__meta">
                                     <h1 class="product-single__title" >{{ ProductDetails.get('name')?.value }}</h1>
-
                                     <div class="prInfoRow">
                                         <div class="product-stock"> <span class="instock "></span> <span class="outstock hide">Unavailable</span> </div>
                                         <div class="product-sku">SKU: <span class="variant-sku">19115-rdxs</span></div>
@@ -62,8 +61,8 @@
                                         <!-- Description -->
                                         <p>{{ description }}</p>
                                     </div>
-
-
+                                    
+                                    
                                 <div id="quantity_message">Hurry! Only  <span class="items">{{ ProductDetails.get('quantity')?.value }}</span>  left in stock.</div>
                                 <form method="post" action="http://annimexweb.com/cart/add" id="product_form_10508262282" accept-charset="UTF-8" class="product-form product-form-product-template hidedropdown" enctype="multipart/form-data">
 
@@ -142,4 +141,4 @@
     </div>
 
 </div>
-<app-home-footer></app-home-footer>
+<app-footer></app-footer>

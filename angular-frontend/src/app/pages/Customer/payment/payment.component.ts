@@ -5,20 +5,16 @@ import { StoreAddCartService } from '../../../service/store-add-cart.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedDataService } from '../../../modules/core/services/shared-data.service';
 
-
-
 @Component({
-  selector: 'app-store-add-cart',
-  templateUrl: './store-add-cart.component.html',
-  styleUrl: './store-add-cart.component.scss'
+  selector: 'app-payment',
+  templateUrl: './payment.component.html',
+  styleUrl: './payment.component.scss'
 })
-export class StoreAddCartComponent {
+export class PaymentComponent {
 
   userContext: any = '';
   addcartdetils : any[] = []; 
   storeid !: number ; 
-  updatedStoreCart !:FormGroup ; 
-
 
   constructor(private router:Router , 
     private storeItemService:StoreItemService , 
@@ -28,24 +24,17 @@ export class StoreAddCartComponent {
     
     
   ){}
-
-  
   ngOnInit(){
     this.setUserContextData();
 
-    this.updatedStoreCart = this.fb.group({
-      quantity : [null , [Validators.required]]
-    })
+    
 
     this.getAllAddCartitem();
 
   }
-
   async setUserContextData(): Promise<void> {
     this.userContext = this.sharedDataService.getContext();
   }
-
-
   getAllAddCartitem() {
     if (this.userContext.Id !== undefined) {
       this.storeAddCartService.getAllStoreCart(this.userContext.Id).subscribe((res) => {
@@ -59,12 +48,7 @@ export class StoreAddCartComponent {
 
 
 
-  deleteStoreCart(id:number ){
-    this.storeAddCartService.deleteAddCart(id).subscribe((res)=>{
-      console.log(res); 
-      this.getAllAddCartitem();
-    })
-  }
+
 
   
 
@@ -76,18 +60,10 @@ export class StoreAddCartComponent {
       return totalPrice;
     }
 
-    gotoPayment(){
-      this.router.navigateByUrl("user/payment")
+    // gotoPayment(){
+    //   this.router.navigateByUrl("user/payment")
       
-    }
-    
-  }
-
-  
-  
+    // }
 
 
-
-
-
-
+}

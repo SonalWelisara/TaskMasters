@@ -3,64 +3,47 @@ import { RouterModule, Routes } from '@angular/router';
 import { BiddingAdminComponent } from './bidding-admin/bidding-admin.component';
 import { BiddingUpdateComponent } from './bidding-update/bidding-update.component';
 import { BiddingComponent } from './bidding/bidding.component';
-import { HomeAboutComponent } from './home-about/home-about.component';
-import { HomeFooterComponent } from './home-footer/home-footer.component';
-import { HomeServiceComponent } from './home-service/home-service.component';
-import { HomeComponent } from './home/home.component';
+
 import { StoreAddCartComponent } from './store-add-cart/store-add-cart.component';
 import { StoreHomeComponent } from './store-home/store-home.component';
 import { StoreProductDiscriptionComponent } from './store-product-discription/store-product-discription.component';
-import { TempUserComponent } from './temp-user/temp-user.component';
+import { FeedbackManageModalComponent } from '../../modules/features/job-feedback-management/components/feedback-manage-modal/feedback-manage-modal.component';
+import { StarRatingComponent } from 'angular-star-rating';
+import { FeedbackAndRatingComponent } from './feedback-and-rating/feedback-and-rating.component';
 import { PaymentComponent } from './payment/payment.component';
-import { BiddingfaceComponent } from './biddingface/biddingface.component';
+
 
 const routes: Routes = [
 
-  {
-    path:"",
-    component:TempUserComponent
-  },
-  {
-    path: 'userHome/:id',
-    component: HomeComponent },
-  {
-    path:'homeAbout/:id',
-    component:HomeAboutComponent
-  },
 
-  {
-    path:'homeService/:id',
-    component:HomeServiceComponent
-  },
 
   //change path
   {
     path:'storeHome',
     component:StoreHomeComponent
   },
-
   {
+
     path:'storeCart/:id',
     component:StoreAddCartComponent
   },
   {
-    path:"homeFooter",
-    component:HomeFooterComponent
-  },
-  {
     path:"storeProductDis/:id",
     component:StoreProductDiscriptionComponent
+  },
+  {
+    path : "storeFeedBack",
+    component : FeedbackAndRatingComponent
+  },
+  {
+    path : "payment",
+    component : PaymentComponent
   },
 
 
 
 
   //bidding
-  {
-    path : "bidface",
-    component:BiddingfaceComponent
-  },
-
   {
     path:"bid",
     component:BiddingComponent
@@ -72,13 +55,10 @@ const routes: Routes = [
   {
     path:"updatebid/:id",
     component: BiddingUpdateComponent
-  },
-
-  //payment
-  {
-    path:"payment",
-    component : PaymentComponent
   }
+
+  
+ 
 
 ];
 

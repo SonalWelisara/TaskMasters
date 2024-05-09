@@ -37,6 +37,7 @@ public class OrderDetails {
     private String status;
 
     @Column(name = "Time")
-    private Time time;;
+    private Time time;
+
 
 }

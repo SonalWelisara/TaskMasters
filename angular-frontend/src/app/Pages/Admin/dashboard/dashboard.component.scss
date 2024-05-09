@@ -1,0 +1,15 @@
+/* Add space between chart and cards */
+.chart-container {
+    margin-bottom: 60px;
+  }
+
+  /* Center the cards within their columns */
+  .card {
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+
+  .divider {
+    border-top: 3px solid #161212;
+    margin: 20px 0; /* Adjust margin as needed */
+  }

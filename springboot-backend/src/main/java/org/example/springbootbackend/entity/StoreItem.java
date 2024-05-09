@@ -33,8 +33,8 @@ public class StoreItem {
     private String Category;
 
     @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private  byte[] data ;
+    @Column(name = "image", length = 1000)
+    private byte[] image;
 
 
 
@@ -56,12 +56,16 @@ public class StoreItem {
     public StoreItemDto toDto(ModelMapper mapper) {
         StoreItemDto storeItemDto = mapper.map(this, StoreItemDto.class);
 
+        if(!feedbackStores.isEmpty()){
+            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
+        }
+
 //        storeItemDto.setRatingId(this.rating.getRatingId());
 //        if (!feedBackRatingList.isEmpty()) {
 //            storeItemDto.setFeedBackRatingDtoList(this.feedBackRatingList.stream().map(feedBackRating -> feedBackRating.toDto(modelMapper)).toList());
 //        }\
 
-        if(!feedbackStores.isEmpty()){
+        if(feedbackStores!=null && !feedbackStores.isEmpty()){
             storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
         }
 

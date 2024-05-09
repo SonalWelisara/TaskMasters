@@ -50,10 +50,10 @@ getBiddingById(){
 updateBidding(){
   this.biddingService.updateBid(this.id , this.updateBid.value).subscribe((res)=>{
     console.log(res);
-    // if(res.id != null){
-      this.router.navigateByUrl("user/bidadmin");
-      console.log("success")
-    // }
+    if(res.id != null){
+      this.router.navigateByUrl("user/bid" , );
+      
+    }
   })
 }
 

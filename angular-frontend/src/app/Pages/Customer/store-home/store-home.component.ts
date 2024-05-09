@@ -1,7 +1,6 @@
 import { Component ,OnInit} from '@angular/core';
 import { StoreItemService } from '../../../service/store-item.service';
 import { Router } from '@angular/router';
-import { UserIdServiceService } from '../../../service/user-id-service.service';
 import { SharedDataService } from '../../../modules/core/services/shared-data.service';
 
 @Component({
@@ -10,22 +9,20 @@ import { SharedDataService } from '../../../modules/core/services/shared-data.se
   styleUrl: './store-home.component.scss'
 })
 export class StoreHomeComponent {
-  userId : number | undefined ; 
+
   userContext: any;
 
   storeItems:any[]=[];
-  constructor( private storeItemService:StoreItemService,private router:Router , private userService : UserIdServiceService ,private sharedDataService: SharedDataService ){
-    this.userId = this.userService.getUserId();
-  }
+  constructor( private storeItemService:StoreItemService,private router:Router  ,private sharedDataService: SharedDataService ){}
 
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit() {
     this.setUserContextData();
     this.getAllStoreItem();
+    console.log("User Id : " , this.userContext.Id)
   }
-
  
-  setUserContextData() {
+  async setUserContextData(): Promise<void> {
     this.userContext = this.sharedDataService.getContext();
   }
   getAllStoreItem(){

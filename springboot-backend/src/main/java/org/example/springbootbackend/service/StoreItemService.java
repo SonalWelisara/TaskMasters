@@ -1,7 +1,6 @@
 package org.example.springbootbackend.service;
 
 import org.example.springbootbackend.dto.StoreItemDto;
-import org.example.springbootbackend.entity.StoreItem;
 
 import java.util.List;
 

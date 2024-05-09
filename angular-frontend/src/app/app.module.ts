@@ -30,20 +30,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UpdateItemComponent } from './pages/StoreAdmin/update-item/update-item.component';
-import { HomeComponent } from './pages/Customer/home/home.component';
-import { HomeServiceComponent } from './pages/Customer/home-service/home-service.component';
-import { HomeAboutComponent } from './pages/Customer/home-about/home-about.component';
+
 import { StoreHomeComponent } from './pages/Customer/store-home/store-home.component';
 import { StoreAddCartComponent } from './pages/Customer/store-add-cart/store-add-cart.component';
-import { HomeFooterComponent } from './pages/Customer/home-footer/home-footer.component';
+
 
 import { StoreProductDiscriptionComponent } from './pages/Customer/store-product-discription/store-product-discription.component';
-import { TempUserComponent } from './pages/Customer/temp-user/temp-user.component';
+
 import { BiddingComponent } from './pages/Customer/bidding/bidding.component';
 import { BiddingAdminComponent } from './pages/Customer/bidding-admin/bidding-admin.component';
 import { BiddingUpdateComponent } from './pages/Customer/bidding-update/bidding-update.component';
-import { CustomerNavBarComponent } from './pages/Customer/customer-nav-bar/customer-nav-bar.component';
-import { StoreNavBarComponent } from './pages/Customer/store-nav-bar/store-nav-bar.component';
 
 //
 
@@ -70,17 +66,14 @@ registerLocaleData(en);
     GetAllProductComponent,
     AddProductComponent,
     UpdateItemComponent,
-    HomeComponent,
-    HomeServiceComponent,
-    HomeAboutComponent,
 
-    CustomerNavBarComponent,
+
     StoreHomeComponent,
     StoreAddCartComponent,
-    HomeFooterComponent,
-    StoreNavBarComponent,
+
+
     StoreProductDiscriptionComponent,
-    TempUserComponent,
+
     BiddingComponent,
     BiddingAdminComponent,
     BiddingUpdateComponent

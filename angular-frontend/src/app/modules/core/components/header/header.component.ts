@@ -82,6 +82,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
       this.router.navigate(['user/storeHome']);
     }
   }
+  navigateToBid(event :Event):void{
+    if (event) {
+      this.router.navigate(['user/bid']);
+    }
+
+  }
 
   logout(): void {
     this.sharedService.clearStorage();
