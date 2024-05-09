@@ -9,6 +9,7 @@ import org.example.springbootbackend.service.StoreItemService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,21 +17,21 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class StoreItemServiceImpl implements StoreItemService {
+@Transactional
+public class StoreItemServiceImpl  implements StoreItemService {
 
     @Autowired
     private final StoreItemRepository storeItemRepository;
 
     private final ModelMapper mapper;
 
+
     //add product
     @Override
-    public StoreItemDto postStoreItem(StoreItemDto storeItemDto){
-        storeItemRepository.save(storeItemDto.toEntity(mapper));
-        return storeItemDto;
+    public StoreItemDto postStoreItem(StoreItemDto storeItemDto) {
+            storeItemRepository.save(storeItemDto.toEntity(mapper));
+            return  storeItemDto ;
     }
-
-
 
 
     //get all product

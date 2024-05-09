@@ -71,9 +71,14 @@ export class StoreAddCartComponent {
     calculateTotalPrice(): number {
       let totalPrice = 0;
       for (const item of this.addcartdetils) {
-        totalPrice += item.p_price * item.quantity;
+        totalPrice += item.p_price ;
       }
       return totalPrice;
+    }
+
+    gotoPayment(){
+      this.router.navigateByUrl("user/payment")
+      
     }
     
   }

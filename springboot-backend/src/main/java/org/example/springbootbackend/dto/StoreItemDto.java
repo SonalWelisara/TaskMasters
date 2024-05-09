@@ -14,6 +14,7 @@ public class StoreItemDto {
     private double Price;
     private int quantity;
     private String Category;
+    private byte[] image;
 //    private Long empId;
 
     //private List<FeedBackRatingDto> feedBackRatingDtoList;

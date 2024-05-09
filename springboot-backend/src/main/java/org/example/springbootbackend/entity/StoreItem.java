@@ -31,10 +31,15 @@ public class StoreItem {
     private int quantity;
     @Column(name = "category")
     private String Category;
+    @Column(name = "iName")
+    private String iName;
+    @Column(name = "iType")
+    private String iType;
+
 
     @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private  byte[] data ;
+    @Column(name = "image", length = 1000)
+    private byte[] image;
 
 
 
@@ -61,7 +66,7 @@ public class StoreItem {
 //            storeItemDto.setFeedBackRatingDtoList(this.feedBackRatingList.stream().map(feedBackRating -> feedBackRating.toDto(modelMapper)).toList());
 //        }\
 
-        if(!feedbackStores.isEmpty()){
+        if(feedbackStores!=null && !feedbackStores.isEmpty()){
             storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
         }
 

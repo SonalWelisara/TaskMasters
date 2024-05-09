@@ -2,7 +2,6 @@ package org.example.springbootbackend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.springbootbackend.dto.StoreItemDto;
-import org.example.springbootbackend.entity.StoreItem;
 import org.example.springbootbackend.service.impl.StoreItemServiceImpl;
 
 
@@ -22,8 +21,8 @@ public class StoreItemController {
 
     //Create Product
     @PostMapping("/storeItem")
-    public ResponseEntity<StoreItemDto> postStoreItem(@RequestBody StoreItemDto storeItemDto ){
-        return ResponseEntity.status(HttpStatus.OK).body(storeItemService.postStoreItem(storeItemDto));
+    public ResponseEntity<StoreItemDto> postStoreItem(@RequestBody StoreItemDto storeItemDto){
+        return ResponseEntity.status(HttpStatus.OK).body(storeItemService.postStoreItem(storeItemDto ));
     }
 
     //get all product
@@ -31,7 +30,6 @@ public class StoreItemController {
     private ResponseEntity<List<StoreItemDto>> getAllStoreItem(){
         return  ResponseEntity.status(HttpStatus.OK).body(storeItemService.getAllStoreItem());
     }
-
     //get product by id
     @GetMapping("/storeItem/{id}")
     public ResponseEntity<StoreItemDto> getStoreItemById(@PathVariable Long id ){
