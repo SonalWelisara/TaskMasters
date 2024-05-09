@@ -37,9 +37,6 @@ public class OrderDetails {
     private String status;
 
     @Column(name = "Time")
-    private Time time;
-
-    @OneToOne(mappedBy = "orderDetails")
-    private Payment payment;
+    private Time time;;
 
 }

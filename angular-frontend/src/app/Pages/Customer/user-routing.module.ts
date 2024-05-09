@@ -12,6 +12,7 @@ import { StoreHomeComponent } from './store-home/store-home.component';
 import { StoreProductDiscriptionComponent } from './store-product-discription/store-product-discription.component';
 import { TempUserComponent } from './temp-user/temp-user.component';
 import { PaymentComponent } from './payment/payment.component';
+import { BiddingfaceComponent } from './biddingface/biddingface.component';
 
 const routes: Routes = [
 
@@ -56,6 +57,11 @@ const routes: Routes = [
 
   //bidding
   {
+    path : "bidface",
+    component:BiddingfaceComponent
+  },
+
+  {
     path:"bid",
     component:BiddingComponent
   },
@@ -66,7 +72,7 @@ const routes: Routes = [
   {
     path:"updatebid/:id",
     component: BiddingUpdateComponent
-  }
+  },
 
   //payment
   {

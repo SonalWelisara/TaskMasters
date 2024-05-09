@@ -112,3 +112,20 @@ input::-webkit-inner-spin-button {
     text-decoration: none;
     color: #fdcc49; 
 }
+
+.needs-validation input:invalid {
+    border-color: red;
+}
+
+.needs-validation .inputbox span {
+    color: #555;
+}
+
+.needs-validation input:invalid + span {
+    display: none;
+}
+
+.needs-validation input:invalid + span + .invalid-feedback {
+    display: block;
+    color: red;
+}

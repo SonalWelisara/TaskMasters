@@ -29,16 +29,4 @@ public class Payment {
 
     private Double Amount;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private PaymentType paymentType;
-
-    @OneToOne
-    @JoinColumn(name = "order_ID")
-    private OrderDetails orderDetails;
-
-    @OneToOne
-    @JoinColumn(name = "hired_ID")
-    private HiredLabour hiredLabour;
-
 }
