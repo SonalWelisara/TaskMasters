@@ -1,53 +1,61 @@
 <app-header></app-header>
-
-<div class="hero_area">
-  <!-- header section strats -->
-  <header class="header_section">
-    
-   </header>
-    <!-- end header section -->
-  </div>
-
-
-  <!-- contact section -->
-
-  <section class="contact_section layout_padding">
-    <div class="container">
-      <div class="heading_container">
-        <h2>
-          Bidding 
-        </h2>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-          <form action="" [formGroup]="postBiddingForm">
-            <div>
-              <input type="number" formControlName="bidding_amount" placeholder="bidding_amount" />
-            </div>
-            
-            <div>
-              <input type="number" formControlName="emp_id" placeholder="Your id " />
-            </div>
-            <div>
-              <input type="text" class="message-box" formControlName="description"  placeholder="Description" />
-            </div>
-            <div class="d-flex ">
-              <button (click)="postbidding()">
-                SEND
-              </button>
-            </div>
-          </form>
-        </div>
-        <div class="col-md-6">
-          <div class="map_container">
-            <div class="map">
-              <div id="googleMap" style="width:100%;height:100%;"></div>
-            </div>
+<div class="container mt-5">
+  <div class="d-flex justify-content-center row">
+      <div class="col-md-8">
+          <div class="d-flex flex-column comment-section">
+              <div class="bg-white p-2">
+                  <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                      <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                  </div>
+                  <div class="mt-2">
+                      <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                  </div>
+              </div>
+              <div class="bg-white">
+                  <div class="d-flex flex-row fs-12">
+                      <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                      <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                      <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                  </div>
+              </div>
+              <div class="bg-light p-2">
+                <form action="" [formGroup]="postBiddingForm">
+                  
+                  <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><input type="number" formControlName="bidding_amount" placeholder="bidding_amount" class="form-control ml-1 shadow-none "></div>
+                  <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><input type="number" formControlName="emp_id" placeholder="Your id " class="form-control ml-1 shadow-none "></div>
+                  <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40"><textarea formControlName="description"  placeholder="Description"  class="form-control ml-1 shadow-none textarea"></textarea></div>
+                  <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" (click)="postbidding()" type="button">Bid</button><button  class="btn btn-outline-primary btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
+                </form>
+                
+              </div>
           </div>
-        </div>
       </div>
-    </div>
-  </section>
+  </div>
+</div>
+<div class="row d-flex justify-content-center mt-100 mb-100">
+  <div class="col-lg-6">
+      <div class="card">
+          <div class="card-body text-center">
+              <h4 class="card-title ">Latest Comments</h4>
+          </div>
+          <div class="comment-widgets custom">
+              <!-- Comment Row -->
+              <div *ngFor="let bidding of bidding" class="d-flex flex-row comment-row m-t-0 custom">
+                <div class="p-2"><img src="https://i.imgur.com/Ur43esv.jpg" alt="user" width="50" class="rounded-circle"></div>
+                  <div class="comment-text w-100">
+                      <h6 class="font-medium">{{bidding.b_id}}</h6> <span class="m-b-15 d-block">{{bidding.description}} </span>
+                      <div class="comment-footer"> <span class="text-muted float-right">{{bidding.bidding_amount}}</span>
+                      </div>
+                  </div>
+                  <div class="mt-2 text-right"><button  class="btn btn-outline-primary btn-sm ml-1 shadow-none btncus"  type="button" (click)="goToUpdate(bidding.b_id)">Update</button><button  class="btn btn-outline-primary btn-sm ml-1 shadow-none btncus " (click)="deleteStoreItem(bidding.b_id)" type="button">Delete</button></div>
+                  <hr>
+                </div> <!-- Comment Row -->
+              
+              
+             
+          </div> <!-- Card -->
+      </div>
+  </div>
+</div>
 
-  <!-- end contact section -->
 <app-footer></app-footer>
