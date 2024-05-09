@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeService } from '../../../../employee.service';
 import { Employee } from '../../../../employee';
 import { FormsModule } from '@angular/forms';
+import { FeedbackService } from '../../../../feedback.spec';
 
 @Component({
   selector: 'app-admin',
@@ -18,7 +19,10 @@ export class AdminComponent {
   constructor(
     private employeeService: EmployeeService,
       // Inject FeedbackService
-    private router: Router
+    private router: Router,
+    private feedbackService: FeedbackService
+    
+
   ) { }
 
   ngOnInit(): void {
@@ -37,7 +41,24 @@ export class AdminComponent {
         this.router.navigate(['update-employee', id]);
     }
   }
-  
+  deleteFeedbacks(employeeId: number | undefined) {
+    this.deleteEmployee(employeeId)
+    if (employeeId !== undefined) {
+      // Call your service method to delete feedbacks by employee ID
+      this.feedbackService.deleteFeedbacksByEmployeeId(employeeId).subscribe(
+        () => {
+           this.deleteEmployee(employeeId)
+          console.log('Feedbacks deleted successfully.');
+        },
+        (error) => {
+          // Handle error if deletion fails
+          console.error('Error deleting feedbacks:', error);
+        }
+      );
+    } else {
+      console.error('No employee ID provided.');
+    }
+  }
   deleteEmployee(id: number | undefined): void {
     if (id) {
       this.employeeService.deleteEmployee(id).subscribe(
