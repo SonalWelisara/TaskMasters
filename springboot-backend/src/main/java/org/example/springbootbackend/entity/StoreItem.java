@@ -56,14 +56,14 @@ public class StoreItem {
     public StoreItemDto toDto(ModelMapper mapper) {
         StoreItemDto storeItemDto = mapper.map(this, StoreItemDto.class);
 
+        if(!feedbackStores.isEmpty()){
+            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
+        }
+
 //        storeItemDto.setRatingId(this.rating.getRatingId());
 //        if (!feedBackRatingList.isEmpty()) {
 //            storeItemDto.setFeedBackRatingDtoList(this.feedBackRatingList.stream().map(feedBackRating -> feedBackRating.toDto(modelMapper)).toList());
 //        }\
-
-        if(!feedbackStores.isEmpty()){
-            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
-        }
 
         return storeItemDto;
     }

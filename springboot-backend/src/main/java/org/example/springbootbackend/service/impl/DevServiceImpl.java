@@ -37,7 +37,9 @@ public class DevServiceImpl implements DevService {
 
     @Override
     public Dev updateDev(Dev dev) {
+
         return devRepository.save(dev);
+
     }
 
     @Override
@@ -55,9 +57,9 @@ public class DevServiceImpl implements DevService {
                         throw new EmailAlreadyExistsException(dev.getEmail());
                     });
 
-            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-            String encodedPassword = encoder.encode(dev.getPassword());
-            dev.setPassword(encodedPassword);
+//            BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//            String encodedPassword = encoder.encode(dev.getPassword());
+//            dev.setPassword(encodedPassword);
             Dev data= devRepository.save(dev);
             String massage="User registered successfully with email: "+ dev.getEmail();
             logger.info("User registered successfully with email: {}", dev.getEmail());

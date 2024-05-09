@@ -20,18 +20,7 @@ const routes: Routes = [
   },
 
   {
-<<<<<<< HEAD
-    path:'homeService/:id',
-    component:HomeServiceComponent
-  },
-  {
-    path:'storeHome/:id',
-    component:StoreHomeComponent
-  },
-  {
-=======
->>>>>>> StoreFunction
-    path:'storeCart/:id',
+    path:'storeCart',
     component:StoreAddCartComponent
   },
   {

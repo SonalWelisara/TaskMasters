@@ -1,7 +1,9 @@
 package org.example.springbootbackend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.example.springbootbackend.dto.FeedbackStoreDto;
 import org.modelmapper.ModelMapper;
@@ -9,6 +11,8 @@ import org.modelmapper.ModelMapper;
 @Setter
 @Getter
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 public class FeedbackStore {
 
     @Id
