@@ -37,7 +37,7 @@ export class AdminComponent {
         this.router.navigate(['update-employee', id]);
     }
   }
-
+  
   deleteEmployee(id: number | undefined): void {
     if (id) {
       this.employeeService.deleteEmployee(id).subscribe(

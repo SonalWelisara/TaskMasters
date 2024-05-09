@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -94,15 +95,18 @@
 
         .navi li a {
             display: block;
-            color: white; /* white letter color */
+            color: white;
+            /* white letter color */
             text-align: center;
             padding: 14px 16px;
             text-decoration: none;
-            font-family: 'YourCreativeFont', sans-serif; /* Specify your creative font */
+            font-family: 'YourCreativeFont', sans-serif;
+            /* Specify your creative font */
         }
 
         .navi li a:hover {
-            background-color: #00BFFF; /* Change background color on hover if needed */
+            background-color: #00BFFF;
+            /* Change background color on hover if needed */
         }
 
         .headers {
@@ -114,44 +118,83 @@
             border-top-right-radius: 10px;
         }
 
+        /* Additional Styles for Feedback */
         .feedback-container {
-            margin-top: 30px;
+            margin-top: 50px;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .feedback-container h2 {
+            margin-bottom: 20px;
         }
 
         .feedback-list {
             list-style-type: none;
-            padding-left: 0;
-            text-align: left;
+            padding: 0;
         }
 
-        .feedback-list li {
-            padding: 10px 0;
-            border-bottom: 1px solid #ccc;
+        .feedback-item {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
         }
 
+        /* Feedback Form Styles */
         .feedback-form {
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+
+        .feedback-form label {
+            font-weight: bold;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            height: 100px;
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .feedback-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .feedback-form button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
-<body>
-<header class="headers">
-    <a href="homepage.php" class="logo"></a>
-    <nav>
-        <ul class="navi">
-            <li><a href="employee-list.component.css">HOME</a></li>
-            <li><a href="service.php">SERVICE</a></li>
-            <li><a href="package.php">PACKAGE</a></li>
-            <li><a href="aboutus.php">ABOUT US</a></li>
-            <li><a href="employee-login" class="contact">Login</a></li>
-        </ul>
-    </nav>
-</header>
 
-<div class="container">
+<body>
+    <header class="headers">
+        <a href="homepage.php" class="logo">
+
+        </a>
+        <nav>
+            <ul class="navi">
+                <li><a href="employee-list.component.css">HOME</a></li>
+                <li><a href="service.php">SERVICE</a></li>
+                <li><a href="package.php">PACKAGE</a></li>
+                <li><a href="aboutus.php">ABOUT US</a></li>
+                <li><a href="employee-login" class="contact">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="profile-container">
         <h1>User Profile</h1>
-        <img src="../../../../../assets/images/emppfp.jpg" alt="Profile Picture" class="profile-image">
+        <img src="assets/images/emppfp.jpg" alt="Profile Picture" class="profile-image">
         <div class="profile-details">
             <div class="detail">
                 <label for="id">ID:</label>
@@ -182,37 +225,37 @@
                 <span>{{ employee?.age }}</span>
             </div>
         </div>
-    </div>
-
-    <!-- Feedback Section -->
-    <div class="feedback-container">
-        <h2>Feedback</h2>
-        <ul class="feedback-list">
-            <li *ngFor="let feedback of feedbackList">
-                {{ feedback.feedback }}
-            </li>
-        </ul>
-        <p *ngIf="!feedbackList || feedbackList.length === 0">No feedback available</p>
-
-        <!-- Feedback Form -->
+        <div class="feedback-container">
+            <h2>Feedback</h2>
+            <div *ngIf="feedbackList && feedbackList.length">
+                <ul class="feedback-list">
+                    <li *ngFor="let feedback of feedbackList" class="feedback-item">{{ feedback.feedback }}</li>
+                </ul>
+            </div>
+            <div *ngIf="!feedbackList || feedbackList.length === 0">
+                <p>No feedback available</p>
+            </div>
+        </div>
         <div class="feedback-form">
-            <h3>Submit Feedback</h3>
+            <h2>Submit Feedback</h2>
             <form (ngSubmit)="submitFeedback()">
                 <div class="form-group">
                     <label for="employeeId">Employee ID:</label>
-                    <input type="number" id="employeeId" name="employeeId" [(ngModel)]="employeeId" class="form-control" required>
+                    <input type="number" id="employeeId" name="employeeId" [(ngModel)]="employeeId" required>
                 </div>
                 <div class="form-group">
                     <label for="feedback">Feedback:</label>
-                    <textarea id="feedback" name="feedback" [(ngModel)]="feedbackMessage" class="form-control" required></textarea>
+                    <textarea id="feedback" name="feedback" [(ngModel)]="feedbackMessage" required></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                <button type="submit">Submit Feedback</button>
             </form>
         </div>
     </div>
-</div>
 
-<!-- Bootstrap JS (Optional) -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
