@@ -14,6 +14,7 @@ public class StoreItemDto {
     private double Price;
     private int quantity;
     private String Category;
+    private double avgRating;
     private byte[] image;
 //    private Long empId;
 
@@ -22,6 +23,10 @@ public class StoreItemDto {
 
     public StoreItem toEntity(ModelMapper mapper){
         StoreItem storeItem = mapper.map(this, StoreItem.class);
+
+        if(this.feedbackStoreDtoList != null && !feedbackStoreDtoList.isEmpty()){
+            storeItem.setFeedbackStores(this.feedbackStoreDtoList.stream().map(feedbackStoreDto -> feedbackStoreDto.toEntity(mapper)).toList());
+        }
 
 //        if (null != empId) {
 //            Emp emp = new Emp();

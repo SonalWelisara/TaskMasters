@@ -31,11 +31,6 @@ public class StoreItem {
     private int quantity;
     @Column(name = "category")
     private String Category;
-    @Column(name = "iName")
-    private String iName;
-    @Column(name = "iType")
-    private String iType;
-
 
     @Lob
     @Column(name = "image", length = 1000)
@@ -60,6 +55,10 @@ public class StoreItem {
 
     public StoreItemDto toDto(ModelMapper mapper) {
         StoreItemDto storeItemDto = mapper.map(this, StoreItemDto.class);
+
+        if(!feedbackStores.isEmpty()){
+            storeItemDto.setFeedbackStoreDtoList(this.feedbackStores.stream().map(feedbackStore -> feedbackStore.toDto(mapper)).toList());
+        }
 
 //        storeItemDto.setRatingId(this.rating.getRatingId());
 //        if (!feedBackRatingList.isEmpty()) {

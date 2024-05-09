@@ -85,7 +85,7 @@ export class StoreProductDiscriptionComponent implements OnInit{
 
       this.storeAddCart.postStoreAddCart(cartItem).subscribe((response) => {
         console.log('Item added to cart:', response);
-        this.router.navigateByUrl("user/storeCart/" + this.userContext.ID ); 
+        this.router.navigateByUrl("user/storeCart"); 
       }, (error) => {
         console.error('Error adding item to cart:', error);
       });

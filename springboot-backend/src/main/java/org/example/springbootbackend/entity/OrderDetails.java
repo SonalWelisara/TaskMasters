@@ -39,7 +39,5 @@ public class OrderDetails {
     @Column(name = "Time")
     private Time time;
 
-    @OneToOne(mappedBy = "orderDetails")
-    private Payment payment;
 
 }

@@ -55,8 +55,6 @@ public class StoreItemServiceImpl  implements StoreItemService {
             throw new NotFoundException("No Item by this ID");
         }
 
-
-
 //        if (!storeItem.getFeedBackRatingList().isEmpty()) {
 //            AtomicReference<Double> avgRating = new AtomicReference<Double>(0.00);
 //            storeItem.getFeedBackRatingList().forEach(feedBackRating -> {
@@ -64,6 +62,7 @@ public class StoreItemServiceImpl  implements StoreItemService {
 //            });
 //            dto.setAverageRating(avgRating.get()/storeItem.getFeedBackRatingList().size());
 //        }
+
     }
 
     //update product by id
