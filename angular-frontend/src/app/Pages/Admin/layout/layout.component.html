@@ -1,0 +1,36 @@
+<nz-layout>
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo-container">
+      <img src="assets/favicon.ico" alt="Logo">
+    </div>
+    <div nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item (click)="todashboard()">
+        <span nz-icon nzType="dashboard" routerLink=""></span>
+        <span>Dashboard</span>
+      </li>
+      <li nz-menu-item (click)="generateReport()">
+        <span nz-icon nzType="database" routerLink="table"></span>
+        <span>Report</span>
+      </li>
+      <li nz-menu-item (click)="totables()">
+        <span nz-icon nzType="team" ></span>
+        <span>Developers</span>
+      </li>
+      
+    </div>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <span
+        class="trigger"
+        nz-icon
+        [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed"
+      ></span>
+    </nz-header>
+    <nz-content>
+      <router-outlet></router-outlet>
+    </nz-content>
+    <nz-footer>Task Masters ©2024</nz-footer>
+  </nz-layout>
+</nz-layout>

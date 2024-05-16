@@ -1,0 +1,43 @@
+<h5>TaskMasters Performence</h5>
+<div class="chart-container">
+  <canvas id="MyChart"></canvas>
+</div>
+
+<hr class="divider">
+
+<div class="container">
+  <div class="row">
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Store item with most Ratings</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h6>ID: {{ itemRatings.get('id')?.value }}</h6> </li>
+          <li class="list-group-item"><h6>Product Name: {{ itemRatings.get('name')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Category: {{ itemRatings.get('category')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Price: {{ itemRatings.get('price')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Ratings: {{ itemRatings.get('avgRating')?.value }}</h6></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Employee with most Ratings</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><h6>ID: {{ empRatings.get('id')?.value }}</h6></li>
+          <li class="list-group-item"><h6>First Name: {{ empRatings.get('firstname')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Last Name: {{ empRatings.get('lastname')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Email: {{ empRatings.get('email')?.value }}</h6></li>
+          <li class="list-group-item"><h6>Mobile: {{ empRatings.get('mobile')?.value }}</h6></li>
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+</div>
+

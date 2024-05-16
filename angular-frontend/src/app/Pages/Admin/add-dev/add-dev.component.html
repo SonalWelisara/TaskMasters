@@ -1,0 +1,97 @@
+<h4>Add New Developer</h4>
+<form nz-form [formGroup]="addDevForm">
+
+  <nz-form-item>
+    <nz-form-label>First Name</nz-form-label>
+    <input
+      nz-input
+      type="text"
+      class="form-control"
+      formControlName="fname"
+      placeholder="First Name"
+    />
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Last Name</nz-form-label>
+    <input
+      nz-input
+      type="text"
+      class="form-control"
+      formControlName="lname"
+      placeholder="Last Name"
+    />
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="emailErrorTpl">
+      <nz-form-label>Email</nz-form-label>
+      <input
+        nz-input
+        type="email"
+        class="form-control"
+        formControlName="email"
+        placeholder="example@ex.com"
+      />
+    </nz-form-control>
+    <ng-template #emailErrorTpl let-control>
+      <ng-container *ngIf="control.hasError('required')">
+        Email is required
+      </ng-container>
+      <ng-container *ngIf="control.hasError('email')">
+        Please enter a valid email address
+      </ng-container>
+    </ng-template>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="phoneErrorTpl">
+      <nz-form-label>Mobile</nz-form-label>
+      <input
+        nz-input
+        type="text"
+        class="form-control"
+        formControlName="contactNo"
+        placeholder="0711234567"
+      />
+    </nz-form-control>
+    <ng-template #phoneErrorTpl let-control>
+      <ng-container *ngIf="control.hasError('required')">
+        Mobile number is required
+      </ng-container>
+      <ng-container *ngIf="control.hasError('pattern')">
+        Mobile number must be 10 digits
+      </ng-container>
+    </ng-template>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Username</nz-form-label>
+    <input
+      nz-input
+      type="text"
+      class="form-control"
+      formControlName="username"
+      placeholder="Username"
+    />
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Password</nz-form-label>
+    <input
+      nz-input
+      type="text"
+      class="form-control"
+      formControlName="password"
+      placeholder="Password"
+    />
+  </nz-form-item>
+
+  <button
+    type="button"
+    class="btn btn-primary btn-lg btn-center"
+    (click)="addDev()"
+  >
+    Add Developer
+  </button>
+</form>

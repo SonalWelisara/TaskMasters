@@ -1,0 +1,254 @@
+<section class="" style="height: calc(100vh + 50px)">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <h1 class="mb-5 text-black">
+          <b>Manage your profile</b>
+        </h1>
+        <div class="">
+          <div class="card mb-4">
+            <div class="card-body text-center">
+              <img
+                src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+                alt="avatar"
+                class="rounded-circle img-fluid"
+                style="width: 150px"
+              />
+              <h5 class="my-3">
+                {{ userContext.firstname }} {{ userContext.lastName }}
+              </h5>
+              <p class="text-muted mb-1">Full Stack Developer</p>
+              <p class="text-muted mb-4">{{userContext.address}}</p>
+              <div class="d-flex justify-content-center mb-2">
+                <div class="mb-4 pb-2" style="display: flex; gap: 0.25rem">
+                  <button
+                    type="button"
+                    data-mdb-button-init
+                    data-mdb-ripple-init
+                    class="btn btn-outline-primary btn-floating"
+                  >
+                    <i class="fab fa-facebook-f fa-lg"></i>
+                  </button>
+                  <button
+                    type="button"
+                    data-mdb-button-init
+                    data-mdb-ripple-init
+                    class="btn btn-outline-primary btn-floating"
+                  >
+                    <i class="fab fa-twitter fa-lg"></i>
+                  </button>
+                  <button
+                    type="button"
+                    data-mdb-button-init
+                    data-mdb-ripple-init
+                    class="btn btn-outline-primary btn-floating"
+                  >
+                    <i class="fab fa-skype fa-lg"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <form
+          [formGroup]="userProfileForm"
+          #userProfileFormDetails="ngForm"
+          (ngSubmit)="onSubmit(userProfileFormDetails)"
+        >
+          <div class="card mb-4">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3 d-flex align-items-center">
+                  <p class="mb-0">First Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <mdb-form-control>
+                    <input
+                      mdbInput
+                      type="text"
+                      id="fname"
+                      class="form-control form-control-lg"
+                      [value]="userContext.firstname"
+                      formControlName="fname"
+                      required
+                    />
+                    <label mdbLabel class="form-label" for="form3Example1m"
+                      >First Name</label
+                    >
+                    <mdb-error
+                      *ngIf="userProfileFormDetails.submitted"
+                      style="margin-top: 2px"
+                    >
+                      <span
+                        *ngIf="uForm?.['fname']?.errors?.['required']"
+                        translate
+                      >
+                        First name is required
+                      </span>
+                    </mdb-error>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3 d-flex align-items-center">
+                  <p class="mb-0">Last Name</p>
+                </div>
+                <div class="col-sm-9">
+                  <mdb-form-control>
+                    <input
+                      mdbInput
+                      type="text"
+                      id="lname"
+                      class="form-control form-control-lg"
+                      [value]="userContext.lastName"
+                      formControlName="lname"
+                      required
+                    />
+                    <label mdbLabel class="form-label" for="form3Example1n"
+                      >Last Name</label
+                    >
+                    <mdb-error
+                      *ngIf="userProfileFormDetails.submitted"
+                      style="margin-top: 2px"
+                    >
+                      <span
+                        *ngIf="uForm?.['lname']?.errors?.['required']"
+                        translate
+                      >
+                        Last name is required
+                      </span>
+                    </mdb-error>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3 d-flex align-items-center">
+                  <p class="mb-0">Address</p>
+                </div>
+                <div class="col-sm-9">
+                  <mdb-form-control>
+                    <input
+                      mdbInput
+                      type="text"
+                      id="address"
+                      class="form-control form-control-lg"
+                      [value]="userContext.address"
+                      formControlName="address"
+                      required
+                    />
+                    <label mdbLabel class="form-label" for="form3Example8"
+                      >Address</label
+                    >
+                    <mdb-error
+                      *ngIf="userProfileFormDetails.submitted"
+                      style="margin-top: 2px"
+                    >
+                      <span
+                        *ngIf="uForm?.['address']?.errors?.['required']"
+                        translate
+                      >
+                        Address is required
+                      </span>
+                    </mdb-error>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3 d-flex align-items-center">
+                  <p class="mb-0">Mobile no</p>
+                </div>
+                <div class="col-sm-9">
+                  <mdb-form-control>
+                    <input
+                      mdbInput
+                      type="tel"
+                      id="phoneNumber"
+                      class="form-control form-control-lg"
+                      [value]="userContext.mobileNumber"
+                      formControlName="phoneNumber"
+                      required
+                    />
+                    <label mdbLabel class="form-label" for="form3Example9"
+                      >Mobile no</label
+                    >
+                    <mdb-error
+                      *ngIf="userProfileFormDetails.submitted"
+                      style="margin-top: 2px"
+                    >
+                      <span
+                        *ngIf="uForm?.['phoneNumber']?.errors?.['required']"
+                        translate
+                      >
+                        Mobile no is required
+                      </span>
+                      <span
+                        *ngIf="uForm?.['phoneNumber']?.errors?.['invalidPhoneNumberFormat']"
+                        translate
+                      >
+                        Enter a valid Mobile Number
+                      </span>
+                    </mdb-error>
+                  </mdb-form-control>
+                </div>
+              </div>
+              <hr />
+              <div class="row">
+                <div class="col-sm-3 d-flex align-items-center">
+                  <p class="mb-0">Email address</p>
+                </div>
+                <div class="col-sm-9">
+                  <mdb-form-control>
+                    <input
+                      mdbInput
+                      type="email"
+                      id="email"
+                      class="form-control form-control-lg"
+                      readonly
+                      [value]="userContext.sub"
+                    />
+                    <label mdbLabel class="form-label" for="email"
+                      >Email address</label
+                    >
+                  </mdb-form-control>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button
+            type="button"
+            class="btn btn-primary fs-6 me-2"
+            style="text-transform: none"
+            mdbRipple
+            (click)="generateReport()"
+          >
+           Generate Report
+          </button>
+            <button
+              type="submit"
+              class="btn btn-primary fs-6 me-2"
+              style="text-transform: none"
+              mdbRipple
+            >
+              Save changes
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger fs-6"
+              style="text-transform: none"
+              mdbRipple
+              (click)="deleteProfile()"
+            >
+              Delete
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

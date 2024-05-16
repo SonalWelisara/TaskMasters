@@ -1,0 +1,32 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="assignOrderModalLabel">Assign Order</h5>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modalRef.close()"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="assignOrderForm" (ngSubmit)="assignOrder()">
+      <div class="mb-4">
+        <label for="orderId" class="form-label">Select Order</label>
+        <select id="orderId" class="form-select" formControlName="orderId" (change)="onOrderSelect($event)">
+          <option *ngFor="let order of remainingOrders" [value]="order.id">{{ order.id }}</option>
+        </select>
+      </div>
+      <div class="mb-4">
+        <label for="orderAddress" class="form-label">Order Address</label>
+        <input type="text" id="orderAddress" class="form-control" formControlName="orderAddress" readonly>
+      </div>
+      <div class="mb-4">
+        <label for="driverId" class="form-label">Driver ID</label>
+        <input type="text" id="driverId" class="form-control" formControlName="driverId" [value]="driverId" readonly>
+      </div>
+      <div class="mb-4">
+        <label for="driverName" class="form-label">Driver ID</label>
+        <input type="text" id="driverName" class="form-control" formControlName="driverName" [value]="driverName" readonly>
+      </div>
+      <div class="text-end">
+        <button type="button" class="btn btn-outline-primary me-2 fs-6" (click)="modalRef.close()">Close</button>
+        <button type="submit" class="btn btn-primary fs-6">Assign Order</button>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer"></div>
+  

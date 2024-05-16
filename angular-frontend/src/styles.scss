@@ -1,0 +1,141 @@
+/* You can add global styles to this file, and also import other style files */
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$task-masters-frontend-primary: mat.define-palette(mat.$indigo-palette);
+$task-masters-frontend-accent: mat.define-palette(
+  mat.$pink-palette,
+  A200,
+  A100,
+  A400
+);
+
+// The warn palette is optional (defaults to red).
+$task-masters-frontend-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$task-masters-frontend-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $task-masters-frontend-primary,
+      accent: $task-masters-frontend-accent,
+      warn: $task-masters-frontend-warn,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($task-masters-frontend-theme);
+
+// MDB SCSS
+@import "mdb-angular-ui-kit/assets/scss/mdb.scss";
+
+// Font Awesome
+@import '@fortawesome/fontawesome-free/css/all.css';
+
+@import 'css-star-rating/scss/star-rating';
+
+@import "./common-colors.scss";
+
+body{
+    //display: block;  my
+    //margin: 0;
+    height: 100%;
+    
+
+    //
+    overflow-y: scroll;
+}
+nz-layout{
+    min-height: 100vh !important;
+}
+
+
+//
+html,
+.cdk-global-scrollblock {
+  overflow-y: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+  min-height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 0.25rem;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-palette-neutral-grey-100, #c0c0c0);
+  border-radius: 0.5rem;
+}
+
+.common-color {
+  color: #e60278
+}
+
+.btn-outline-primary {
+    --mdb-btn-color: #e60278;
+    --mdb-btn-border-color: #e60278;
+    --mdb-btn-hover-bg: #e60278;
+    --mdb-btn-hover-border-color: #e60278;
+    --mdb-btn-active-bg: #e60278;
+    --mdb-btn-active-border-color: #e60278;
+    --mdb-btn-disabled-color: #e60278;
+    --mdb-btn-disabled-border-color: #e60278;
+    --mdb-btn-hover-color: white;
+    text-transform: none;
+}
+
+.btn-primary {
+  --mdb-btn-bg: #e60278;
+  --mdb-btn-border-color: #e60278;
+  --mdb-btn-hover-bg: #e60278;
+  --mdb-btn-hover-border-color: #e60278;
+  --mdb-btn-active-bg: #e60278;
+  --mdb-btn-active-border-color: #e60278;
+  --mdb-btn-disabled-bg: #e60278;
+  --mdb-btn-disabled-border-color: #e60278;
+  // --mdb-btn-box-shadow: 0 4px 9px -4px #e60278;
+  --mdb-btn-focus-bg: #e60278;
+  text-transform: none;
+}
+
+.logo {
+  font-style: italic;
+  margin: 0rem 0rem 0rem 2rem;
+}
+
+.mat-mdc-tab-header {
+  width: 35%;
+}
+
+.mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+  box-shadow: unset;
+}
+
+.error-msg {
+  font-size: 8px !important;
+  margin-top: 2px;
+  color: var(--error) !important;
+}

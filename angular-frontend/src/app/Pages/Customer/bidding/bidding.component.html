@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+<div class="hero_area">
+  <!-- header section strats -->
+  <header class="header_section">
+    
+   </header>
+    <!-- end header section -->
+  </div>
+
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Bidding 
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <form action="" [formGroup]="postBiddingForm">
+            <div>
+              <input type="number" formControlName="bidding_amount" placeholder="bidding_amount" />
+            </div>
+            
+            <div>
+              <input type="number" formControlName="emp_id" placeholder="Your id " />
+            </div>
+            <div>
+              <input type="text" class="message-box" formControlName="description"  placeholder="Description" />
+            </div>
+            <div class="d-flex ">
+              <button (click)="postbidding()">
+                SEND
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <div class="map_container">
+            <div class="map">
+              <div id="googleMap" style="width:100%;height:100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+<app-footer></app-footer>
